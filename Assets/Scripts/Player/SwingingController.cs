@@ -1,0 +1,95 @@
+using UnityEngine;
+
+public class SpiderSwing : MonoBehaviour
+{
+    public LineRenderer lineRenderer;
+    public float swingForce = 10f;
+    private bool isSwinging = false;
+    private Vector2 swingDirection;
+    private Vector2 attachPoint;
+    private Rigidbody2D rb;
+    
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        if (lineRenderer == null)
+        {
+            Debug.LogError("LineRenderer is not assigned.");
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !isSwinging)
+        {
+            FindClosestAttachable();
+        }
+
+        if (Input.GetMouseButton(0) && isSwinging)
+        {
+            Swing();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopSwinging();
+        }
+    }
+
+    void FindClosestAttachable()
+    {
+        GameObject[] attachables = GameObject.FindGameObjectsWithTag("Attachable");
+        GameObject closestAttachable = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (GameObject attachable in attachables)
+        {
+            float distance = Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), attachable.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestAttachable = attachable;
+            }
+        }
+        
+        print(closestAttachable);
+        if (closestAttachable != null)
+        {
+            attachPoint = closestAttachable.transform.position;
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, attachPoint);
+            isSwinging = true;
+        }
+    }
+
+    void Swing()
+    {
+        Vector2 playerPosition = (Vector2)transform.position;
+        Vector2 directionToAttachPoint = (attachPoint - playerPosition).normalized;
+        Vector2 velocity = rb.velocity;
+
+        // Calculate the perpendicular direction to the swing
+        Vector2 perpendicularDirection = new Vector2(-directionToAttachPoint.y, directionToAttachPoint.x);
+
+        // Calculate the current tangential velocity component
+        float tangentialSpeed = Vector2.Dot(velocity, perpendicularDirection);
+
+        // Determine the swing direction based on the tangential speed
+        swingDirection = tangentialSpeed > 0 ? perpendicularDirection : -perpendicularDirection;
+
+        // Update the player's velocity to maintain the current tangential speed
+        rb.velocity = swingDirection * Mathf.Abs(tangentialSpeed) * 1.001f;
+
+        // Update the line renderer positions
+        lineRenderer.SetPosition(0, playerPosition);
+        lineRenderer.SetPosition(1, attachPoint);
+    }
+
+    void StopSwinging()
+    {
+        isSwinging = false;
+        lineRenderer.positionCount = 0;
+        //rb.velocity = Vector2.zero;
+    }
+}

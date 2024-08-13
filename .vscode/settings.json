@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "flow_game.sln"
+    "dotnet.defaultSolution": "flow_game.sln",
+    "dotnet.preferCSharpExtension": true
 }
