@@ -13,7 +13,7 @@ public class GrowingCurvedLine : MonoBehaviour
     public float curveAmplitude = 1f; // Amplitude of the curve
 
     private LineRenderer lineRenderer;
-    private List<Vector3> points;
+    public List<Vector3> points;
     private float distanceTraveled = 0f;
     private Vector3 lastPointPosition;
     private float timeElapsed = 0f;
@@ -43,12 +43,16 @@ public class GrowingCurvedLine : MonoBehaviour
 
     void GrowLine()
     {
-        Vector3 newPoint = lastPointPosition + GenerateNextPoint();
-        points.Add(newPoint);
-        lastPointPosition = newPoint; // Update last point position
+        Vector3 nextPoint = GenerateNextPoint();
+        if (nextPoint.magnitude > growthRate)
+        {
+            Vector3 newPoint = lastPointPosition + nextPoint;
+            points.Add(newPoint);
+            lastPointPosition = newPoint; // Update last point position
 
-        lineRenderer.positionCount = points.Count;
-        lineRenderer.SetPositions(points.ToArray());
+            lineRenderer.positionCount = points.Count;
+            lineRenderer.SetPositions(points.ToArray());
+        }
     }
 
     Vector3 GenerateNextPoint()
