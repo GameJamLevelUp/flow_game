@@ -169,7 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 79971219}
-  offset: 9.5
+  offset: 14
+  noiseAmount: 0.125
+  seed: 7
 --- !u!120 &79971219
 LineRenderer:
   serializedVersion: 2
@@ -191,7 +193,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -378,7 +380,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 159397807}
-  offset: -5
+  offset: -9
+  noiseAmount: 0.25
+  seed: 1
 --- !u!120 &159397807
 LineRenderer:
   serializedVersion: 2
@@ -400,7 +404,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -472,8 +476,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -530,7 +534,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 193211348}
-  offset: 7.5
+  offset: 11.5
+  noiseAmount: 0.25
+  seed: 2
 --- !u!120 &193211348
 LineRenderer:
   serializedVersion: 2
@@ -552,7 +558,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -624,8 +630,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -737,13 +743,13 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -842,9 +848,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17be0e909c7aac2459acb67552f0fb40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1742804940}
-  smoothSpeed: 0.125
+  target: {fileID: 1742804942}
+  smoothSpeed: 10
   offset: {x: 0, y: 0, z: -10}
+  camera: {fileID: 519420031}
 --- !u!1 &592528425
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +899,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 592528428}
-  offset: 9
+  offset: 13
+  noiseAmount: 0.125
+  seed: 5
 --- !u!120 &592528428
 LineRenderer:
   serializedVersion: 2
@@ -914,7 +923,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1126,7 +1135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 660476938}
-  offset: -7.5
+  offset: -11.5
+  noiseAmount: 0.25
+  seed: 3
 --- !u!120 &660476938
 LineRenderer:
   serializedVersion: 2
@@ -1148,7 +1159,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1220,8 +1231,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -1315,7 +1326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 964086471}
-  offset: -9.5
+  offset: -14
+  noiseAmount: 0.125
+  seed: 8
 --- !u!120 &964086471
 LineRenderer:
   serializedVersion: 2
@@ -1337,7 +1350,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1503,7 +1516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 1021970862}
-  offset: 11
+  offset: 16
+  noiseAmount: 0.125
+  seed: 9
 --- !u!120 &1021970862
 LineRenderer:
   serializedVersion: 2
@@ -1525,7 +1540,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1655,7 +1670,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 1180018065}
-  offset: -11
+  offset: 16
+  noiseAmount: 0.125
+  seed: 10
 --- !u!120 &1180018065
 LineRenderer:
   serializedVersion: 2
@@ -1677,7 +1694,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1760,6 +1777,55 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &1441951067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441951069}
+  - component: {fileID: 1441951068}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1441951068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441951067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: a3a0195bf2f8a3242979b20792367912, type: 2}
+--- !u!4 &1441951069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441951067}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.22055, y: 77.14323, z: 0.21237129}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1526783803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1865,6 +1931,8 @@ MonoBehaviour:
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 1531412118}
   offset: 0
+  noiseAmount: 0.25
+  seed: 0
 --- !u!120 &1531412118
 LineRenderer:
   serializedVersion: 2
@@ -1886,7 +1954,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1912,7 +1980,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 10
+    widthMultiplier: 18
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -2155,7 +2223,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2398,7 +2466,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 1774682399}
-  offset: -9
+  offset: -13
+  noiseAmount: 0.125
+  seed: 6
 --- !u!120 &1774682399
 LineRenderer:
   serializedVersion: 2
@@ -2420,7 +2490,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2550,7 +2620,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalLineRenderer: {fileID: 2115760697}
   offsetLineRenderer: {fileID: 2043504326}
-  offset: 5
+  offset: 9
+  noiseAmount: 0.25
+  seed: 0
 --- !u!120 &2043504326
 LineRenderer:
   serializedVersion: 2
@@ -2572,7 +2644,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2644,8 +2716,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -2687,12 +2759,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1742804940}
-  maxDistance: 20
+  maxDistance: 50
   growthRate: 2
   curveAmount: 1
   pointInterval: 2
   curveFrequency: 1
   curveAmplitude: 1
+  spawnAttachable: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+  spawnRadius: 5
   points: []
 --- !u!120 &2115760697
 LineRenderer:
@@ -2841,3 +2915,4 @@ SceneRoots:
   - {fileID: 1526783803}
   - {fileID: 452522020}
   - {fileID: 145348384}
+  - {fileID: 1441951069}

@@ -11,6 +11,8 @@ public class GrowingCurvedLine : MonoBehaviour
     public float pointInterval = 1f; // Distance interval between new points
     public float curveFrequency = 1f; // Frequency of the curve
     public float curveAmplitude = 1f; // Amplitude of the curve
+    public GameObject spawnAttachable; // The attachable prefab
+    public float spawnRadius = 2f; // Radius within which to spawn the attachable
 
     private LineRenderer lineRenderer;
     public List<Vector3> points;
@@ -52,6 +54,12 @@ public class GrowingCurvedLine : MonoBehaviour
 
             lineRenderer.positionCount = points.Count;
             lineRenderer.SetPositions(points.ToArray());
+
+            // Chance to spawn the attachable
+            if (Random.value <= 0.25f) // 25% chance
+            {
+                SpawnAttachable(newPoint);
+            }
         }
     }
 
@@ -80,6 +88,19 @@ public class GrowingCurvedLine : MonoBehaviour
         }
 
         return nextPoint - lastPointPosition;
+    }
+
+    private void SpawnAttachable(Vector3 spawnPosition)
+    {
+        if (spawnAttachable != null)
+        {
+            // Random position within the spawn radius
+            Vector3 randomOffset = Random.insideUnitSphere * spawnRadius;
+            randomOffset.y = 0; // Optional: Keep the attachable on the same level as the line
+
+            // Instantiate the attachable at the calculated position
+            Instantiate(spawnAttachable, spawnPosition + randomOffset, Quaternion.identity);
+        }
     }
 
     // Draw debug lines in the Editor

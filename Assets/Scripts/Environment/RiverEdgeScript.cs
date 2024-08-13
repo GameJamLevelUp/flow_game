@@ -6,6 +6,8 @@ public class OffsetLineRenderer : MonoBehaviour
     public LineRenderer originalLineRenderer; // The LineRenderer from which to get points
     public LineRenderer offsetLineRenderer;   // The LineRenderer to which the offset line will be drawn
     public float offset = 1.0f;               // The offset distance from the original line
+    public float noiseAmount = 0.1f;          // The amount of noise to add
+    public int seed = 0;                      // Seed for the random number generator
 
     private void Start()
     {
@@ -29,17 +31,36 @@ public class OffsetLineRenderer : MonoBehaviour
         Vector3[] originalPoints = new Vector3[originalLineRenderer.positionCount];
         originalLineRenderer.GetPositions(originalPoints);
 
-        // Calculate offset points
+        // Calculate offset points with unique noise for each point
         Vector3[] offsetPoints = new Vector3[originalPoints.Length];
-        for (int i = 0; i < originalPoints.Length - 1; i++)
+        for (int i = 0; i < originalPoints.Length; i++)
         {
             Vector3 start = originalPoints[i];
-            Vector3 end = originalPoints[i + 1];
-            Vector3 direction = (end - start).normalized;
-            Vector3 perpendicular = new Vector3(-direction.y, direction.x, direction.z);
-            offsetPoints[i] = start + perpendicular * offset;
+
+            // Initialize random number generator with a unique seed for each point
+            Random.InitState(seed + i);
+
+            // Generate unique noise for each point
+            Vector3 noise = new Vector3(
+                Random.Range(-noiseAmount, noiseAmount),
+                Random.Range(-noiseAmount, noiseAmount),
+                Random.Range(-noiseAmount, noiseAmount)
+            );
+
+            if (i < originalPoints.Length - 1)
+            {
+                Vector3 end = originalPoints[i + 1];
+                Vector3 direction = (end - start).normalized;
+                Vector3 perpendicular = new Vector3(-direction.y, direction.x, direction.z);
+
+                offsetPoints[i] = start + perpendicular * offset + noise;
+            }
+            else
+            {
+                // For the last point, just apply noise without adding perpendicular offset
+                offsetPoints[i] = start + noise;
+            }
         }
-        offsetPoints[offsetPoints.Length - 1] = originalPoints[originalPoints.Length - 1] + (originalPoints[originalPoints.Length - 1] - originalPoints[originalPoints.Length - 2]).normalized * offset;
 
         // Update the offset LineRenderer with new points
         offsetLineRenderer.positionCount = offsetPoints.Length;

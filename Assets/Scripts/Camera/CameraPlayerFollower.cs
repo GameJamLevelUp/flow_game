@@ -2,25 +2,35 @@ using UnityEngine;
 
 public class FollowTarget : MonoBehaviour
 {
-    public Transform target;  // The target object to follow
+    public Rigidbody2D target;  // The target object to follow
     public float smoothSpeed = 0.125f;  // Smoothing factor
     public Vector3 offset;  // Offset from the target position
+
+    public Camera camera;
+
+    private float currentOrthoSize; // Store the current orthographic size
+
+    void Start()
+    {
+        // Initialize the currentOrthoSize with the camera's initial orthographic size
+        currentOrthoSize = camera.orthographicSize;
+    }
 
     void LateUpdate()
     {
         if (target == null)
             return;
 
-        // Define the desired position with the offset
-        Vector3 desiredPosition = target.position + offset;
+        // Calculate the desired position with offset
+        Vector3 desiredPosition = target.transform.position + offset * (1f + target.velocity.magnitude / 2f);
 
-        // Smoothly interpolate between the current position and the desired position
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        // Calculate the desired orthographic size based on the target's velocity
+        float desiredOrthoSize = 5 * (1f + target.velocity.magnitude / 20f);
+
+        // Smoothly interpolate the orthographic size
+        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, desiredOrthoSize, smoothSpeed * Time.deltaTime);
 
         // Update the position of the object
-        transform.position = smoothedPosition;
-
-        // Optional: Uncomment the following line if you want the object to look at the target
-        // transform.LookAt(target);
+        transform.position = desiredPosition;
     }
 }
