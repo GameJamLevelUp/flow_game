@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420034}
   - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
@@ -743,14 +744,14 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: 0
+  m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -801,8 +802,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0
+  far clip plane: 10000
   field of view: 34
   orthographic: 1
   orthographic size: 5
@@ -853,6 +854,21 @@ MonoBehaviour:
   smoothSpeed: 10
   offset: {x: 0, y: 0, z: -10}
   camera: {fileID: 519420031}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eea39d2719193b49ae536d7e4a3dfeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1742804942}
+  particleSystem: {fileID: 1576145284}
+  emissionMultiplier: 1
 --- !u!1 &592528425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1296,63 @@ Transform:
   - {fileID: 1180018063}
   m_Father: {fileID: 2115760698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &900198798
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671971682145544751, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770946192411752871, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+      propertyPath: m_Name
+      value: RiverFlowParticles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
 --- !u!1 &964086468
 GameObject:
   m_ObjectHideFlags: 0
@@ -7744,7 +7817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 2115760697}
   playerRb: {fileID: 1742804942}
-  pushForce: 1
+  pushForce: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7757,3 +7830,4 @@ SceneRoots:
   - {fileID: 452522020}
   - {fileID: 145348384}
   - {fileID: 1441951069}
+  - {fileID: 900198798}
