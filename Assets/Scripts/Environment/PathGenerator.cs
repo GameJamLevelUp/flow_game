@@ -4,6 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class GrowingCurvedLine : MonoBehaviour
 {
+
+    [System.Serializable]
+    public class AestheticItem
+    {
+        public GameObject prefab; // The prefab/GameObject to spawn
+        public float spawnChance; // The chance to spawn this item (0 to 1)
+    }
     public Transform playerTransform; // The player or the target position
     public float maxDistance = 20f; // Maximum distance from the player
     public float growthRate = 0.5f; // Rate at which the line grows
@@ -11,7 +18,8 @@ public class GrowingCurvedLine : MonoBehaviour
     public float pointInterval = 1f; // Distance interval between new points
     public float curveFrequency = 1f; // Frequency of the curve
     public float curveAmplitude = 1f; // Amplitude of the curve
-    public GameObject spawnAttachable; // The attachable prefab
+    public List<AestheticItem> aestheticItems; // List of aesthetic items
+    public List<AestheticItem> attachableItems; // List of attachable items
     public float spawnRadius = 2f; // Radius within which to spawn the attachable
 
     private LineRenderer lineRenderer;
@@ -55,11 +63,9 @@ public class GrowingCurvedLine : MonoBehaviour
             lineRenderer.positionCount = points.Count;
             lineRenderer.SetPositions(points.ToArray());
 
-            // Chance to spawn the attachable
-            if (Random.value <= 0.25f) // 25% chance
-            {
-                SpawnAttachable(newPoint);
-            }
+            // Chance to spawn an attachable item
+            SpawnAttachable(newPoint);
+            SpawnAesthetic(newPoint);
         }
     }
 
@@ -92,14 +98,57 @@ public class GrowingCurvedLine : MonoBehaviour
 
     private void SpawnAttachable(Vector3 spawnPosition)
     {
-        if (spawnAttachable != null)
+        if (attachableItems != null && attachableItems.Count > 0)
         {
-            // Random position within the spawn radius
-            Vector3 randomOffset = Random.insideUnitSphere * spawnRadius;
-            randomOffset.y = 0; // Optional: Keep the attachable on the same level as the line
+            // Randomly select an AestheticItem based on their spawn chances
+            float randomValue = Random.value;
+            float cumulativeChance = 0f;
 
-            // Instantiate the attachable at the calculated position
-            Instantiate(spawnAttachable, spawnPosition + randomOffset, Quaternion.identity);
+            foreach (var item in attachableItems)
+            {
+                cumulativeChance += item.spawnChance;
+                if (randomValue <= cumulativeChance)
+                {
+                    // Random position within the spawn radius
+                    Vector3 randomOffset = Random.insideUnitSphere * spawnRadius;
+                    randomOffset.y = 0; // Optional: Keep the attachable on the same level as the line
+
+                    // Instantiate the selected item at the calculated position
+                    if (item.prefab != null)
+                    {
+                        Instantiate(item.prefab, spawnPosition + randomOffset, Quaternion.identity);
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    private void SpawnAesthetic(Vector3 spawnPosition)
+    {
+        if (aestheticItems != null && aestheticItems.Count > 0)
+        {
+            // Randomly select an AestheticItem based on their spawn chances
+            float randomValue = Random.value;
+            float cumulativeChance = 0f;
+
+            foreach (var item in aestheticItems)
+            {
+                cumulativeChance += item.spawnChance;
+                if (randomValue <= cumulativeChance)
+                {
+                    // Random position within the spawn radius
+                    Vector3 randomOffset = Random.insideUnitSphere * spawnRadius;
+                    randomOffset.y = 0; // Optional: Keep the attachable on the same level as the line
+
+                    // Instantiate the selected item at the calculated position
+                    if (item.prefab != null)
+                    {
+                        Instantiate(item.prefab, spawnPosition + randomOffset, Quaternion.identity);
+                    }
+                    break;
+                }
+            }
         }
     }
 
