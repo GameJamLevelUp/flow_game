@@ -4,7 +4,7 @@ public class SpiderSwing : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public float swingForce = 10f;
-    public float retractingForceStrength = 1f;
+    public float retractingForceStrength = 1000f;
     private bool isSwinging = false;
     private Vector2 attachPoint;
     private float ropeLength;
