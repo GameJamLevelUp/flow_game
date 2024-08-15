@@ -284,6 +284,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_Distance
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 2.6017146
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 15.225828
+      objectReference: {fileID: 0}
     - target: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
       propertyPath: m_Name
       value: AttachableRocks (2)
@@ -649,6 +661,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_Distance
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -2.342179
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 11.813229
+      objectReference: {fileID: 0}
     - target: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
       propertyPath: m_Name
       value: AttachableRocks (1)
@@ -1057,7 +1081,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000007f249bbc05fbf45eb50536ed
@@ -1908,6 +1932,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_Distance
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 2.769421
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 6.3772326
+      objectReference: {fileID: 0}
     - target: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
       propertyPath: m_Name
       value: AttachableRocks
@@ -6962,9 +6998,9 @@ GameObject:
   - component: {fileID: 1742804940}
   - component: {fileID: 1742804939}
   - component: {fileID: 1742804941}
+  - component: {fileID: 1742804943}
   - component: {fileID: 1742804942}
   - component: {fileID: 1742804944}
-  - component: {fileID: 1742804943}
   - component: {fileID: 1742804945}
   m_Layer: 0
   m_Name: Player
@@ -7116,6 +7152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 1742804944}
   swingForce: 10
+  retractingForceStrength: 10000
+  ropeBreakForce: 600
 --- !u!120 &1742804944
 LineRenderer:
   serializedVersion: 2
@@ -7679,7 +7717,8 @@ MonoBehaviour:
   pointInterval: 2
   curveFrequency: 1
   curveAmplitude: 1
-  spawnAttachable: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+  aestheticItems: []
+  attachableItems: []
   spawnRadius: 5
   points: []
 --- !u!120 &2115760697
