@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUI : MonoBehaviour
+public class GameUI : MonoBehaviour
 {
     public RectTransform healthContainer; // The container holding the health segments
     public CanvasGroup containerCanvasGroup; // CanvasGroup to control transparency of the container
@@ -26,9 +26,15 @@ public class HealthUI : MonoBehaviour
             Debug.LogWarning("Invalid segment index");
             return;
         }
-        damageTaken++;
         // Make the specified health segment transparent
-        SetHealthSegmentTransparency(damageTaken, 0.5f); // Example transparency value, 0 (invisible) to 1 (fully visible)
+        SetHealthSegmentTransparency(damageTaken, 0.25f); 
+
+        FollowTarget cameraScript = GameObject.FindAnyObjectByType<FollowTarget>();
+
+        cameraScript.Shake(0.2f, 0.1f);
+
+        damageTaken++;
+
         
         // Optionally, adjust container transparency if needed
         // containerCanvasGroup.alpha = Mathf.Max(0, containerCanvasGroup.alpha - 0.1f);
@@ -37,8 +43,8 @@ public class HealthUI : MonoBehaviour
     // Set the transparency of a specific health segment
     private void SetHealthSegmentTransparency(int index, float alpha)
     {
-        Color color = healthSegments[healthSegments.Length - index].color;
+        Color color = healthSegments[healthSegments.Length - 1 - index].color;
         color.a = alpha;
-        healthSegments[index].color = color;
+        healthSegments[healthSegments.Length - 1 - index].color = color;
     }
 }
