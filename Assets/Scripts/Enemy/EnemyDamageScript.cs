@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,10 +6,10 @@ public class EnemyDamage : MonoBehaviour
 {
     public float playerSpeedThreshold = 20f; // Speed threshold below which the player takes damage
     public int damageAmount = 10; // Amount of damage to inflict on the player
+    public Boolean shouldDestroy = true;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("collide");
         // Check if the collision is with a player
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -32,7 +33,11 @@ public class EnemyDamage : MonoBehaviour
             }
 
             // Destroy the enemy after collision
-            Destroy(gameObject);
+            if (shouldDestroy)
+            {
+                Destroy(gameObject);
+            }
+            
         }
     }
 }

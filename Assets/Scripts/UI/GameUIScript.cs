@@ -27,7 +27,12 @@ public class GameUI : MonoBehaviour
             return;
         }
         // Make the specified health segment transparent
-        SetHealthSegmentTransparency(damageTaken, 0.25f); // Example transparency value, 0 (invisible) to 1 (fully visible)
+        SetHealthSegmentTransparency(damageTaken, 0.25f); 
+
+        FollowTarget cameraScript = GameObject.FindAnyObjectByType<FollowTarget>();
+
+        cameraScript.Shake(0.2f, 0.1f);
+
         damageTaken++;
 
         
