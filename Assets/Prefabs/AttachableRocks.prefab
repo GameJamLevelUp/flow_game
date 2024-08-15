@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3950027633043020670}
   - component: {fileID: 5721487326011932964}
-  - component: {fileID: 7427572718945821545}
+  - component: {fileID: 7146938241838761969}
   m_Layer: 0
   m_Name: AttachableRocks
   m_TagString: Attachable
@@ -87,6 +87,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7146938241838761969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799883948007957355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acf939dfa8aeab4daf536678c0eabc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteList:
+  - sprite: {fileID: 21300000, guid: 520798a2d2368bf4e826be26731a9dbb, type: 3}
+    chance: 0.25
+  - sprite: {fileID: 21300000, guid: 6db31fd33eba73645b1ae5081a4ee9b8, type: 3}
+    chance: 0.25
+  - sprite: {fileID: 21300000, guid: cbe9bbf12d3cfd148a12646565c6915d, type: 3}
+    chance: 0.25
+  - sprite: {fileID: 21300000, guid: 44196ba884ea5f542b16a5f9a992dee3, type: 3}
+    chance: 0.25
 --- !u!1 &6821156953972653165
 GameObject:
   m_ObjectHideFlags: 0
