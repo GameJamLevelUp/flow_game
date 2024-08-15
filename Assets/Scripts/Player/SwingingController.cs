@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SpiderSwing : MonoBehaviour
@@ -20,7 +21,7 @@ public class SpiderSwing : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isSwinging)
+        if (Input.GetMouseButton(0) && !isSwinging)
         {
             FindClosestAttachable();
         }
@@ -52,14 +53,29 @@ public class SpiderSwing : MonoBehaviour
             }
         }
         
-        print(closestAttachable);
-        if (closestAttachable != null)
+        Vector3 movementDirection = rb.velocity.normalized;
+
+        // Calculate the direction towards the attachable point
+        Vector3 directionToAttachablePoint = ((Vector2)closestAttachable.transform.position - rb.position).normalized;
+
+        // Calculate the angle between the two directions
+        float angle = Vector3.Angle(movementDirection, directionToAttachablePoint);
+
+        print(angle);
+
+        // Check if the angle is between 80 and 100 degrees
+        if (angle >= 80f && angle <= 100f)
         {
-            attachPoint = closestAttachable.transform.position;
-            lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, attachPoint);
-            isSwinging = true;
+
+
+            if (closestAttachable != null)
+            {
+                attachPoint = closestAttachable.transform.position;
+                lineRenderer.positionCount = 2;
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, attachPoint);
+                isSwinging = true;
+            }
         }
     }
 
