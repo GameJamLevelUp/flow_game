@@ -18,7 +18,6 @@ public class GameUI : MonoBehaviour
     }
 
     // Call this method to handle damage and update the health UI
-
     private int damageTaken = 0;
     public void ReceiveDamage()
     {
@@ -36,7 +35,6 @@ public class GameUI : MonoBehaviour
 
         damageTaken++;
 
-        
         // Optionally, adjust container transparency if needed
         // containerCanvasGroup.alpha = Mathf.Max(0, containerCanvasGroup.alpha - 0.1f);
     }
@@ -68,6 +66,24 @@ public class GameUI : MonoBehaviour
             // Set the trigger on the animator to fire the animation
             animator.SetTrigger("TriggerDistanceGrow");
         }
+    }
 
+    private float targetTimeScale = 1.0f; // Target time scale
+    private float timeScaleSpeed = 5.0f; // Speed of transition
+
+    void Update()
+    {
+        // Check if the space key is pressed
+        if (Input.GetKey(KeyCode.Space))
+        {
+            targetTimeScale = 0.3f; // Set target game speed to 30%
+        }
+        else
+        {
+            targetTimeScale = 1.0f; // Set target game speed to 100%
+        }
+
+        // Smoothly interpolate the time scale
+        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * timeScaleSpeed);
     }
 }
