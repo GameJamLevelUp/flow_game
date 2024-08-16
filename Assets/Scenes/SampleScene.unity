@@ -1219,8 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useLeftSide: 1
-  colliderOffset: 1.5
-  edgeMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
+  polygonMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
 --- !u!114 &592528430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8207,8 +8206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useLeftSide: 0
-  colliderOffset: 1.5
-  edgeMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
+  polygonMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
 --- !u!114 &1774682401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8720,6 +8718,8 @@ MonoBehaviour:
   curveAmplitude: 1
   aestheticItems:
   - prefab: {fileID: 7770946192411752871, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
+    spawnChance: 0.1
+  - prefab: {fileID: 1390854705044352430, guid: ec7df6577418bf34e839cbf4ab3813b7, type: 3}
     spawnChance: 0.1
   attachableItems:
   - prefab: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
