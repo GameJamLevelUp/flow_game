@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,5 +47,27 @@ public class GameUI : MonoBehaviour
         Color color = healthSegments[healthSegments.Length - 1 - index].color;
         color.a = alpha;
         healthSegments[healthSegments.Length - 1 - index].color = color;
+    }
+
+    public TextMeshProUGUI distanceText;
+    public TextMeshProUGUI speedText;
+    public Animator animator;
+    private float prevDistance = 0;
+    public void SetDistance(float distance, float speed)
+    {
+        speedText.text = $"{speed:F2}m/s";
+
+        if (distance > prevDistance + 0.1f) {
+
+            prevDistance = distance;
+
+            float dividedDistance = distance / 1000;
+            // Update the text to show distance rounded to 2 decimal places
+            distanceText.text = $"{dividedDistance:F2} km";
+
+            // Set the trigger on the animator to fire the animation
+            animator.SetTrigger("TriggerDistanceGrow");
+        }
+
     }
 }

@@ -10,6 +10,7 @@ public class SpiderSwing : MonoBehaviour
     private Vector2 attachPoint;
     private Rigidbody2D rb;
     
+    private GameUI gameUI;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,10 +18,17 @@ public class SpiderSwing : MonoBehaviour
         {
             Debug.LogError("LineRenderer is not assigned.");
         }
+        gameUI = GameObject.FindObjectOfType<GameUI>();
     }
 
     void Update()
     {
+
+        if (gameUI != null)
+        {
+            gameUI.SetDistance(transform.position.y, rb.velocity.magnitude);
+        }
+
         if (Input.GetMouseButton(0) && !isSwinging)
         {
             FindClosestAttachable();
@@ -64,8 +72,8 @@ public class SpiderSwing : MonoBehaviour
         print(angle);
 
         // Check if the angle is between 80 and 100 degrees
-        if (angle >= 80f && angle <= 100f)
-        {
+        // if (angle >= 80f && angle <= 100f)
+        // {
 
 
             if (closestAttachable != null)
@@ -76,7 +84,7 @@ public class SpiderSwing : MonoBehaviour
                 lineRenderer.SetPosition(1, attachPoint);
                 isSwinging = true;
             }
-        }
+        // }
     }
 
     void Swing()
