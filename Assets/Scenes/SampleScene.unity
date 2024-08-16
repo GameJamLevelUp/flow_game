@@ -1219,8 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useLeftSide: 1
-  colliderOffset: 1.5
-  edgeMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
+  polygonMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
 --- !u!114 &592528430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8207,8 +8206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useLeftSide: 0
-  colliderOffset: 1.5
-  edgeMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
+  polygonMaterial: {fileID: 6200000, guid: 1372db61f560d284ca0bf19e4a6cd6b0, type: 2}
 --- !u!114 &1774682401
 MonoBehaviour:
   m_ObjectHideFlags: 0
