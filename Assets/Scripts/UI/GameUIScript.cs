@@ -53,7 +53,7 @@ public class GameUI : MonoBehaviour
     private float prevDistance = 0;
     public void SetDistance(float distance, float speed)
     {
-        speedText.text = $"{speed:F2}m/s";
+        speedText.text = $"{speed:F0}m/s";
 
         if (distance > prevDistance + 0.1f) {
 

@@ -8721,6 +8721,8 @@ MonoBehaviour:
   aestheticItems:
   - prefab: {fileID: 7770946192411752871, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
     spawnChance: 0.1
+  - prefab: {fileID: 1390854705044352430, guid: ec7df6577418bf34e839cbf4ab3813b7, type: 3}
+    spawnChance: 0.1
   attachableItems:
   - prefab: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
     spawnChance: 0.1
