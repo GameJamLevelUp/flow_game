@@ -171,7 +171,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 79971219}
   offset: 16
   noiseAmount: 0.125
-  seed: 7
   collider: {fileID: 0}
 --- !u!120 &79971219
 LineRenderer:
@@ -394,7 +393,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 159397807}
   offset: -12
   noiseAmount: 0.25
-  seed: 1
   collider: {fileID: 0}
 --- !u!120 &159397807
 LineRenderer:
@@ -549,7 +547,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 193211348}
   offset: 14.5
   noiseAmount: 0.25
-  seed: 2
   collider: {fileID: 0}
 --- !u!120 &193211348
 LineRenderer:
@@ -716,71 +713,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428952538}
   serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_Distance
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -2.342179
-      objectReference: {fileID: 0}
-    - target: {fileID: 3533037288023154383, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 11.813229
-      objectReference: {fileID: 0}
-    - target: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_Name
-      value: AttachableRocks (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.342179
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.813229
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950027633043020670, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +945,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 592528428}
   offset: 15
   noiseAmount: 0.125
-  seed: 5
   collider: {fileID: 0}
 --- !u!120 &592528428
 LineRenderer:
@@ -1348,7 +1286,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 660476938}
   offset: -14.5
   noiseAmount: 0.25
-  seed: 3
   collider: {fileID: 0}
 --- !u!120 &660476938
 LineRenderer:
@@ -1893,7 +1830,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 964086471}
   offset: -16
   noiseAmount: 0.125
-  seed: 8
   collider: {fileID: 0}
 --- !u!120 &964086471
 LineRenderer:
@@ -2084,7 +2020,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 1021970862}
   offset: 18
   noiseAmount: 0.125
-  seed: 9
   collider: {fileID: 0}
 --- !u!120 &1021970862
 LineRenderer:
@@ -2314,7 +2249,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 1180018065}
   offset: -18
   noiseAmount: 0.125
-  seed: 10
   collider: {fileID: 0}
 --- !u!120 &1180018065
 LineRenderer:
@@ -2747,7 +2681,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 1531412118}
   offset: 0
   noiseAmount: 0.25
-  seed: 0
   collider: {fileID: 0}
 --- !u!120 &1531412118
 LineRenderer:
@@ -2770,7 +2703,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: e4b4df24cd91ad14d8e973d5e82f4a3a, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2845,8 +2778,8 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
-    textureScale: {x: 1, y: 1}
+    textureMode: 1
+    textureScale: {x: 0.07, y: 3}
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
@@ -7702,12 +7635,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1742804940}
-  - component: {fileID: 1742804939}
-  - component: {fileID: 1742804941}
   - component: {fileID: 1742804943}
   - component: {fileID: 1742804942}
   - component: {fileID: 1742804944}
-  - component: {fileID: 1742804945}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7930,7 +7860,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 1774682399}
   offset: -15
   noiseAmount: 0.125
-  seed: 6
   collider: {fileID: 0}
 --- !u!120 &1774682399
 LineRenderer:
@@ -8260,7 +8189,6 @@ MonoBehaviour:
   offsetLineRenderer: {fileID: 2043504326}
   offset: 12
   noiseAmount: 0.25
-  seed: 0
   collider: {fileID: 0}
 --- !u!120 &2043504326
 LineRenderer:
@@ -8636,3 +8564,5 @@ SceneRoots:
   - {fileID: 2115760698}
   - {fileID: 1441951069}
   - {fileID: 428952541}
+  - {fileID: 145348384}
+  - {fileID: 1526783803}
