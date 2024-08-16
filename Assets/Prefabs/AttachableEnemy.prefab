@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: -1130683265
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.0326901, g: 0.6377357, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: afef43a50c40b314bb0437c321262adf, type: 3}
+  m_Color: {r: 0.95294124, g: 0.95294124, b: 0.95294124, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 5.21, y: 4.79}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeedThreshold: 20
   damageAmount: 10
+  shouldDestroy: 1
 --- !u!1 &6821156953972653165
 GameObject:
   m_ObjectHideFlags: 0
