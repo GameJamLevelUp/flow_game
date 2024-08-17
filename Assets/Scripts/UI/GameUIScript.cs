@@ -68,19 +68,45 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    public Slider slowMoSlider;           // Slider to represent slow motion duration
+    public float refreshRate = 0.1f;      // Rate at which the slow-mo regenerates
+    public float pauseDuration = 1.0f;    // Pause between deactivating and regenerating slow-mo
+
     private float targetTimeScale = 1.0f; // Target time scale
-    private float timeScaleSpeed = 5.0f; // Speed of transition
+    private float timeScaleSpeed = 5.0f;  // Speed of transition
+    private float currentSliderValue;     // Current value of the slider
+    private bool isRegenerating = false;  // Flag to indicate if regenerating
+    private float regenTimer = 0f;        // Timer for the regeneration pause
 
     void Update()
     {
-        // Check if the space key is pressed
-        if (Input.GetKey(KeyCode.Space))
+        // If the space key is pressed and the slider has value left
+        if (Input.GetKey(KeyCode.Space) && slowMoSlider.value > 0)
         {
             targetTimeScale = 0.3f; // Set target game speed to 30%
+            slowMoSlider.value -= Time.deltaTime / 2f; // Decrease slider value over time
+            isRegenerating = false;
+            regenTimer = 0f; // Reset the regeneration timer
         }
         else
         {
             targetTimeScale = 1.0f; // Set target game speed to 100%
+
+            // If slow motion has ended and not regenerating
+            if (!isRegenerating)
+            {
+                regenTimer += Time.deltaTime;
+                if (regenTimer >= pauseDuration)
+                {
+                    isRegenerating = true; // Start regenerating after the pause
+                }
+            }
+            else
+            {
+                // Regenerate the slider value over time
+                slowMoSlider.value += refreshRate * Time.deltaTime;
+                slowMoSlider.value = Mathf.Clamp(slowMoSlider.value, 0, slowMoSlider.maxValue); // Clamp to max value
+            }
         }
 
         // Smoothly interpolate the time scale

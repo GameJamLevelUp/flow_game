@@ -49,7 +49,7 @@ MonoBehaviour:
   projectileSpeed: 12
   cannonballPrefab: {fileID: 7958112751588506563, guid: feef1ab7bf6ff214c8a72bd7ba2d5929, type: 3}
   shootingDistance: 25
-  shootingInterval: 2.5
+  shootingInterval: 0.5
 --- !u!1 &3504844293153953066
 GameObject:
   m_ObjectHideFlags: 0
