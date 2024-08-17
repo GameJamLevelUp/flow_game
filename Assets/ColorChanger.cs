@@ -10,7 +10,7 @@ public class ColorChanger : MonoBehaviour
     public Color normalTrailColor = Color.white;
     public Color fastTrailColor = Color.red;
     public float normalTrailWidth = 0.025f; // Default trail width
-    public float murderModeTrailWidth = 1.0f; // Trail width in murder mode
+    public float murderModeTrailWidth = 0.5f; // Trail width in murder mode
 
     void Start()
     {
