@@ -14,7 +14,6 @@ public class SpiderSwing : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        if (lineRenderer == null)
         {
             Debug.LogError("LineRenderer is not assigned.");
         }
