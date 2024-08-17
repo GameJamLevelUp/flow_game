@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class SpiderSwing : MonoBehaviour
+public class SwingingController : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public float swingForce = 10f;

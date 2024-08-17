@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 592528427}
   - component: {fileID: 592528429}
   - component: {fileID: 592528430}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Soft Shore 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8059,7 +8059,7 @@ GameObject:
   - component: {fileID: 1774682398}
   - component: {fileID: 1774682400}
   - component: {fileID: 1774682401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Soft Shore 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8734,6 +8734,8 @@ MonoBehaviour:
   - prefab: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
     spawnChance: 0.1
   - prefab: {fileID: 3799883948007957355, guid: 299c7d65ab1fc2046ae4debba7b3bc06, type: 3}
+    spawnChance: 0.1
+  - prefab: {fileID: 3504844293153953066, guid: 9b4eef324f546a0468e60b020033feec, type: 3}
     spawnChance: 1
   spawnRadius: 5
   points: []
