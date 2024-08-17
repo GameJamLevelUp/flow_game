@@ -6,7 +6,7 @@ public class ColorChanger : MonoBehaviour
 {
     public Rigidbody2D rb;
     TrailRenderer trailRenderer;
-    public float speedThreshold = 15f;
+    public float speedThreshold = 20f;
     public Color normalTrailColor = Color.white;
     public Color fastTrailColor = Color.red;
     public float normalTrailWidth = 0.25f; // Default trail width
