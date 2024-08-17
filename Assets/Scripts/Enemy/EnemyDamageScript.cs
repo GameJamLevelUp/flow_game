@@ -30,12 +30,10 @@ public class EnemyDamage : MonoBehaviour
                     {
                         gameUI.ReceiveDamage();
                     }
-                } else if (shouldDestroy && explosionParticleSystem != null) {
-                        if (shouldDestroy && explosionParticleSystem != null)
-                        {
-                            explosionParticleSystem.Play();
-                            Destroy(gameObject, 0.2f);
-                        }
+                } else if (shouldDestroy && explosionParticleSystem != null)
+                {
+                    explosionParticleSystem.Play();
+                    Destroy(gameObject, 0.2f);           
                 }
             }
 
