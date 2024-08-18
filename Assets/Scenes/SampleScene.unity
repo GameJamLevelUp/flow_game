@@ -515,7 +515,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 4
   m_Positions:
-  - {x: 0, y: 0, z: 0}
+  - {x: 16, y: 0, z: 0}
+  - {x: 16, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -564,8 +565,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 1
     textureScale: {x: 1, y: 1}
@@ -743,8 +744,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -12, y: 0, z: 0}
+  - {x: -12, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -897,8 +898,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 2
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 14.5, y: 0, z: 0}
+  - {x: 14.5, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -1295,8 +1296,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 3
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 15, y: 0, z: 0}
+  - {x: 15, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -1345,8 +1346,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -1561,8 +1562,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 2
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -14.5, y: 0, z: 0}
+  - {x: -14.5, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -1981,6 +1982,7 @@ MonoBehaviour:
   speedText: {fileID: 1289806464}
   animator: {fileID: 1246691900}
   slowMoSlider: {fileID: 2117833386}
+  sliderAnimator: {fileID: 2117833388}
   refreshRate: 0.1
   pauseDuration: 1
 --- !u!1 &746494573
@@ -2188,8 +2190,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 4
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -16, y: 0, z: 0}
+  - {x: -16, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -2238,8 +2240,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -2378,8 +2380,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 5
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 18, y: 0, z: 0}
+  - {x: 18, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -2428,8 +2430,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -2532,8 +2534,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 5
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -18, y: 0, z: 0}
+  - {x: -18, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -2554,8 +2556,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.07058824, g: 0.6, b: 0.7254902, a: 1}
-      key1: {r: 0.07058824, g: 0.6, b: 0.7254902, a: 1}
+      key0: {r: 0.7254902, g: 0.78039217, b: 0.007843138, a: 1}
+      key1: {r: 0.7254902, g: 0.78039217, b: 0.007843138, a: 1}
       key2: {r: 0.9882353, g: 0.8745098, b: 0.60784316, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2582,8 +2584,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -3111,7 +3113,7 @@ LineRenderer:
   m_SortingOrder: -1
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 30
@@ -3160,7 +3162,7 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
+    numCornerVertices: 5
     numCapVertices: 0
     alignment: 0
     textureMode: 0
@@ -8296,8 +8298,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 3
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -15, y: 0, z: 0}
+  - {x: -15, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -8346,8 +8348,8 @@ LineRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -8625,8 +8627,8 @@ LineRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 12, y: 0, z: 0}
+  - {x: 12, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 3
@@ -9077,6 +9079,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2117833385}
   - component: {fileID: 2117833386}
+  - component: {fileID: 2117833388}
+  - component: {fileID: 2117833387}
   m_Layer: 0
   m_Name: SlowMo ProgressBar
   m_TagString: Untagged
@@ -9156,6 +9160,39 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &2117833387
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117833384}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &2117833388
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117833384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 998cb4ba9abd64d4cad7e9118b5560e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
