@@ -5,18 +5,19 @@ public class SwingingController : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public float swingForce = 10f;
-    public float retractingForceStrength = 1000f;
     private bool isSwinging = false;
+    private Vector2 swingDirection;
     private Vector2 attachPoint;
-    private float ropeLength;
     private Rigidbody2D rb;
     
+    private GameUI gameUI;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         {
             Debug.LogError("LineRenderer is not assigned.");
         }
+        gameUI = GameObject.FindObjectOfType<GameUI>();
     }
 
     void Update()
@@ -46,6 +47,7 @@ public class SwingingController : MonoBehaviour
     void FindClosestAttachable()
     {
         GameObject[] attachables = GameObject.FindGameObjectsWithTag("Attachable");
+        GameObject closestAttachable = null;
         float closestDistance = float.MaxValue;
 
         foreach (GameObject attachable in attachables)
@@ -58,15 +60,30 @@ public class SwingingController : MonoBehaviour
             }
         }
         
-        print(closestAttachable);
-        if (closestAttachable != null)
-        {
-            attachPoint = closestAttachable.transform.position;
-            lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, attachPoint);
-            isSwinging = true;
-        }
+        Vector3 movementDirection = rb.velocity.normalized;
+
+        // Calculate the direction towards the attachable point
+        Vector3 directionToAttachablePoint = ((Vector2)closestAttachable.transform.position - rb.position).normalized;
+
+        // Calculate the angle between the two directions
+        float angle = Vector3.Angle(movementDirection, directionToAttachablePoint);
+
+        print(angle);
+
+        // Check if the angle is between 80 and 100 degrees
+        // if (angle >= 80f && angle <= 100f)
+        // {
+
+
+            if (closestAttachable != null)
+            {
+                attachPoint = closestAttachable.transform.position;
+                lineRenderer.positionCount = 2;
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, attachPoint);
+                isSwinging = true;
+            }
+        // }
     }
 
     void Swing()
@@ -75,51 +92,27 @@ public class SwingingController : MonoBehaviour
         Vector2 directionToAttachPoint = (attachPoint - playerPosition).normalized;
         Vector2 velocity = rb.velocity;
 
+        // Calculate the perpendicular direction to the swing
+        Vector2 perpendicularDirection = new Vector2(-directionToAttachPoint.y, directionToAttachPoint.x);
+
+        // Calculate the current tangential velocity component
+        float tangentialSpeed = Vector2.Dot(velocity, perpendicularDirection);
+
+        // Determine the swing direction based on the tangential speed
+        swingDirection = tangentialSpeed > 0 ? perpendicularDirection : -perpendicularDirection;
+
         // Update the player's velocity to maintain the current tangential speed
-        float distance = Mathf.Clamp(Vector2.Distance(playerPosition, attachPoint), 1, float.MaxValue);
-        rb.AddForce(directionToAttachPoint * retractingForceStrength * Time.deltaTime);
+        rb.velocity = swingDirection * Mathf.Abs(tangentialSpeed) * 1.001f;
 
         // Update the line renderer positions
         lineRenderer.SetPosition(0, playerPosition);
         lineRenderer.SetPosition(1, attachPoint);
-
-        // Calculate the ratio of the used rope length
-        float ropeRatio = Mathf.Clamp(distance / ropeLength, 0.5f, 1);
-
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[]
-            {
-                new GradientColorKey(Color.white, 0.0f),
-                new GradientColorKey(Color.white, 0.8f),
-                new GradientColorKey(Color.red, 1.0f)
-            },
-            new GradientAlphaKey[]
-            {
-                new GradientAlphaKey(0.0f, 0.0f),
-                new GradientAlphaKey(0.8f, 0.8f),
-                new GradientAlphaKey(0.8f, 1.0f)
-            }
-        );
-
-        // Set the color of the line renderer based on the rope ratio
-        lineRenderer.colorGradient = gradient;
-        lineRenderer.startColor = gradient.Evaluate(ropeRatio);
-        lineRenderer.endColor = gradient.Evaluate(ropeRatio);
     }
-
 
     void StopSwinging()
     {
         isSwinging = false;
         lineRenderer.positionCount = 0;
-
-        if (closestAttachable != null)
-        {
-            Destroy(joint);
-            
-        }
-        
         //rb.velocity = Vector2.zero;
     }
 }
