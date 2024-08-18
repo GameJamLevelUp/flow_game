@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class SpiderSwing : MonoBehaviour
+public class SwingingController : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public float swingForce = 10f;
@@ -9,23 +10,24 @@ public class SpiderSwing : MonoBehaviour
     private Vector2 attachPoint;
     private float ropeLength;
     private Rigidbody2D rb;
-    private GameObject closestAttachable;
-    private DistanceJoint2D joint;
-    public float ropeBreakForce = 600f;
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        if (lineRenderer == null)
         {
             Debug.LogError("LineRenderer is not assigned.");
         }
-
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isSwinging)
+
+        if (gameUI != null)
+        {
+            gameUI.SetDistance(transform.position.y, rb.velocity.magnitude);
+        }
+
+        if (Input.GetMouseButton(0) && !isSwinging)
         {
             FindClosestAttachable();
         }
@@ -63,18 +65,6 @@ public class SpiderSwing : MonoBehaviour
             lineRenderer.positionCount = 2;
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, attachPoint);
-
-            Vector2 playerPosition = (Vector2)transform.position;
-            ropeLength = Vector2.Distance(playerPosition, attachPoint);
-
-            joint = gameObject.AddComponent<DistanceJoint2D>();
-
-            joint.connectedAnchor = attachPoint;
-            joint.autoConfigureDistance = true;
-            joint.maxDistanceOnly = true;
-            //joint.breakForce = ropeBreakForce;
-            joint.enableCollision = true;
-
             isSwinging = true;
         }
     }

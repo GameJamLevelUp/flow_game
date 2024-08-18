@@ -8,7 +8,7 @@ public class OffsetLineRenderer : MonoBehaviour
     public LineRenderer offsetLineRenderer;   // The LineRenderer to which the offset line will be drawn
     public float offset = 1.0f;               // The offset distance from the original line
     public float noiseAmount = 0.1f;          // The amount of noise to add
-    public new LineEdgeCollider collider;
+    public new LinePolygonCollider collider;
 
     private List<Vector3> noiseList = new List<Vector3>(); // List to store noise values
 
@@ -21,7 +21,7 @@ public class OffsetLineRenderer : MonoBehaviour
             return;
         }
 
-        collider = transform.GetComponent<LineEdgeCollider>();
+        collider = transform.GetComponent<LinePolygonCollider>();
 
         // Initialize noiseList with current number of positions
         InitializeNoiseList();
