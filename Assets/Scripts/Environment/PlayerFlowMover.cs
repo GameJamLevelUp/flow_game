@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CurvePush : MonoBehaviour
+public class PlayerFlowMover : MonoBehaviour
 {
     public LineRenderer lineRenderer; // The LineRenderer to read points from
     public Rigidbody2D playerRb;      // The Rigidbody2D of the player
