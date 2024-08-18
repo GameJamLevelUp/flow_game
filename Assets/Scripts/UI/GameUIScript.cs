@@ -21,9 +21,10 @@ public class GameUI : MonoBehaviour
     private int damageTaken = 0;
     public void ReceiveDamage()
     {
-        if (damageTaken < 0 || damageTaken >= healthSegments.Length)
+        if (damageTaken >= healthSegments.Length)
         {
-            Debug.LogWarning("Invalid segment index");
+            HighScoreManager.TrySaveHighScore(prevDistance, highScoreText);
+            animator.SetTrigger("TriggerDieAnimation");
             return;
         }
         // Make the specified health segment transparent
@@ -49,6 +50,7 @@ public class GameUI : MonoBehaviour
 
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI speedText;
+    public TextMeshProUGUI highScoreText;
     public Animator animator;
     private float prevDistance = 0;
     public void SetDistance(float distance, float speed)
