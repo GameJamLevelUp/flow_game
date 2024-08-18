@@ -10,9 +10,20 @@ public class RandomSpritePicker : MonoBehaviour
         public float chance; // The chance of picking this sprite (0 to 1)
     }
 
+    [System.Serializable]
+    public class SpriteReflection
+    {
+        public Sprite sprite;
+        public Sprite reflection;
+    }
+
     public List<SpriteChance> spriteList; // List of sprites with their chances
+    public List<SpriteReflection> reflections; // List of sprite reflections
+
+    public GameObject reflectionPrefab;
 
     private SpriteRenderer spriteRenderer; // SpriteRenderer to assign the selected sprite
+    private SpriteRenderer reflectionRenderer; // SpriteRenderer to assign the selected sprite
 
     void Start()
     {
@@ -22,10 +33,46 @@ public class RandomSpritePicker : MonoBehaviour
         {
             Sprite selectedSprite = PickRandomSprite();
             spriteRenderer.sprite = selectedSprite;
+            Debug.Log("Rock: " + transform.position);
+
+            Sprite selectedReflection = PickReflectionSprite(selectedSprite);
+            if (selectedReflection != null)
+            {
+                CreateReflection(selectedReflection);
+            }
+            else
+            {
+                Debug.LogWarning("No matching reflection found for the selected sprite.");
+            }
         }
         else
         {
             Debug.LogWarning("SpriteRenderer is not attached or spriteList is empty.");
+        }
+    }
+
+    void CreateReflection(Sprite reflectionSprite)
+    {
+        if (reflectionPrefab != null)
+        {
+            Vector3 reflectionLocation = new Vector3(transform.position.x, transform.position.y - 1.3f, transform.position.z);
+            GameObject reflection = Instantiate(reflectionPrefab, reflectionLocation, Quaternion.identity);
+            Debug.Log("Reflection: " + reflection.transform.position);
+            //reflection.transform.position.Set(reflection.transform.position.x, reflection.transform.position.y - 1, reflection.transform.position.z);
+
+            SpriteRenderer reflectionRenderer = reflection.GetComponent<SpriteRenderer>();
+            if (reflectionRenderer != null)
+            {
+                reflectionRenderer.sprite = reflectionSprite;
+            }
+            else
+            {
+                Debug.LogWarning("Reflection prefab does not have a SpriteRenderer component.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Reflection prefab is not assigned.");
         }
     }
 
@@ -51,5 +98,19 @@ public class RandomSpritePicker : MonoBehaviour
 
         // Return the last sprite in the list as a fallback
         return spriteList[spriteList.Count - 1].sprite;
+    }
+
+    Sprite PickReflectionSprite(Sprite selectedSprite)
+    {
+        foreach (var reflection in reflections)
+        {
+            if (reflection.sprite == selectedSprite)
+            {
+                return reflection.reflection;
+            }
+        }
+
+        Debug.LogWarning("No matching reflection found for the selected sprite.");
+        return null; // Return null if no matching reflection is found
     }
 }
