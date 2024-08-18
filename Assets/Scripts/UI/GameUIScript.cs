@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,9 +22,11 @@ public class GameUI : MonoBehaviour
     private int damageTaken = 0;
     public void ReceiveDamage()
     {
-        if (damageTaken < 0 || damageTaken >= healthSegments.Length)
+        if (damageTaken >= healthSegments.Length)
         {
-            Debug.LogWarning("Invalid segment index");
+            StartCoroutine(SaveHighScoreAndSlowDown(prevDistance));
+            animator.SetTrigger("TriggerDieAnimation");
+            hasDied = true;
             return;
         }
         // Make the specified health segment transparent
@@ -34,9 +37,6 @@ public class GameUI : MonoBehaviour
         cameraScript.Shake(0.2f, 0.1f);
 
         damageTaken++;
-
-        // Optionally, adjust container transparency if needed
-        // containerCanvasGroup.alpha = Mathf.Max(0, containerCanvasGroup.alpha - 0.1f);
     }
 
     // Set the transparency of a specific health segment
@@ -49,14 +49,17 @@ public class GameUI : MonoBehaviour
 
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI speedText;
+    public TextMeshProUGUI highScoreText;
+    private bool hasDied = false;
     public Animator animator;
     private float prevDistance = 0;
+
     public void SetDistance(float distance, float speed)
     {
         speedText.text = $"{speed:F0}m/s";
 
-        if (distance > prevDistance + 0.1f) {
-
+        if (distance > prevDistance + 0.1f) 
+        {
             prevDistance = distance;
 
             float dividedDistance = distance / 1000;
@@ -97,7 +100,7 @@ public class GameUI : MonoBehaviour
             }
             timeSinceSpaceRelease = 0f;
         }
-        else
+        else if (!hasDied)
         {
             targetTimeScale = 1.0f; // Set target game speed to 100%
 
@@ -128,7 +131,42 @@ public class GameUI : MonoBehaviour
             }
         }
 
-        // Smoothly interpolate the time scale
-        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * timeScaleSpeed);
+        if (!hasDied)
+        {
+            // Smoothly interpolate the time scale
+            Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * timeScaleSpeed);
+        }
+        
+    }
+
+    private IEnumerator SaveHighScoreAndSlowDown(float score)
+    {
+        float initialTimeScale = Time.timeScale;
+        float targetTimeScale = 0.05f; // Target time scale for the slowdown
+        float duration = 0.5f; // Duration of the slowdown
+        float elapsedTime = 0f;
+
+        // Gradually slow down the game over half a second
+        while (elapsedTime < duration)
+        {
+            Time.timeScale = Mathf.Lerp(initialTimeScale, targetTimeScale, elapsedTime / duration);
+            elapsedTime += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        // Time.timeScale = targetTimeScale;
+
+        // Save the high score
+        HighScoreManager.TrySaveHighScore(score, highScoreText);
+
+        // // Restore the time scale (optional if you want the game to resume)
+        // yield return new WaitForSecondsRealtime(1f); // Optional delay before restoring time scale
+        // elapsedTime = 0f;
+        // while (elapsedTime < duration)
+        // {
+        //     Time.timeScale = Mathf.Lerp(targetTimeScale, initialTimeScale, elapsedTime / duration);
+        //     elapsedTime += Time.unscaledDeltaTime;
+        //     yield return null;
+        // }
+        // Time.timeScale = initialTimeScale;
     }
 }
