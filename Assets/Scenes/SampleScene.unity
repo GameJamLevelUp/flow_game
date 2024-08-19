@@ -10715,16 +10715,163 @@ MonoBehaviour:
   curveAmplitude: 1
   aestheticItems:
   - prefab: {fileID: 7770946192411752871, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
-    spawnChance: 0.1
+    NormalizingSpawnDistance: 2500
+    spawnChanceCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   - prefab: {fileID: 1390854705044352430, guid: ec7df6577418bf34e839cbf4ab3813b7, type: 3}
-    spawnChance: 0.1
+    NormalizingSpawnDistance: 2500
+    spawnChanceCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   attachableItems:
   - prefab: {fileID: 3799883948007957355, guid: 90219ed9b4f5d0b4885379827df790db, type: 3}
-    spawnChance: 0.1
+    NormalizingSpawnDistance: 2500
+    spawnChanceCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.20074607
+        value: 0.52014947
+        inSlope: 0.20074612
+        outSlope: 0.20074612
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.2
+        inSlope: -0.4005604
+        outSlope: -0.4005604
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   - prefab: {fileID: 3799883948007957355, guid: 299c7d65ab1fc2046ae4debba7b3bc06, type: 3}
-    spawnChance: 0.3
+    NormalizingSpawnDistance: 2500
+    spawnChanceCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.2
+        value: 0.2
+        inSlope: 1.3333333
+        outSlope: 1.3333333
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 0.7
+        inSlope: 1.0254239
+        outSlope: 1.0254239
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
+        inSlope: -0.39999998
+        outSlope: -0.39999998
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   - prefab: {fileID: 3504844293153953066, guid: 9b4eef324f546a0468e60b020033feec, type: 3}
-    spawnChance: 0.2
+    NormalizingSpawnDistance: 2500
+    spawnChanceCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   spawnRadius: 5
   points: []
 --- !u!120 &2115760697
@@ -11094,5 +11241,3 @@ SceneRoots:
   - {fileID: 2115760698}
   - {fileID: 1441951069}
   - {fileID: 428952541}
-  - {fileID: 145348384}
-  - {fileID: 1526783803}
