@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f101485266aac1045ab7860fd595a3ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,6 +108,16 @@ MonoBehaviour:
     chance: 0.25
   - sprite: {fileID: 21300000, guid: 44196ba884ea5f542b16a5f9a992dee3, type: 3}
     chance: 0.25
+  reflections:
+  - sprite: {fileID: 21300000, guid: 520798a2d2368bf4e826be26731a9dbb, type: 3}
+    reflection: {fileID: 21300000, guid: 4bd065f8bc6a4a541b06036b06d4b04e, type: 3}
+  - sprite: {fileID: 21300000, guid: 6db31fd33eba73645b1ae5081a4ee9b8, type: 3}
+    reflection: {fileID: 21300000, guid: b18a3f5fd2214174087826adb3ab2e5d, type: 3}
+  - sprite: {fileID: 21300000, guid: cbe9bbf12d3cfd148a12646565c6915d, type: 3}
+    reflection: {fileID: 21300000, guid: c1f373bac940bd54787ee7ce21a207b3, type: 3}
+  - sprite: {fileID: 21300000, guid: 44196ba884ea5f542b16a5f9a992dee3, type: 3}
+    reflection: {fileID: 21300000, guid: 1b90740da3f7cbd48834def58b7ac8d3, type: 3}
+  reflectionPrefab: {fileID: 5009310237545803147, guid: 8955a1587f1549442af2f9e5ccb5447e, type: 3}
 --- !u!1 &6821156953972653165
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class FollowTarget : MonoBehaviour
     public Rigidbody2D target;  // The target object to follow
     public float smoothSpeed = 0.125f;  // Smoothing factor
     public Vector3 offset;  // Offset from the target position
-    public Camera camera;   // Reference to the camera
+    new public Camera camera;   // Reference to the camera
 
     private float currentOrthoSize; // Store the current orthographic size
     private Vector3 originalPosition; // Store the original position of the camera
@@ -42,8 +42,6 @@ public class FollowTarget : MonoBehaviour
         {
             shakeOffset = Random.insideUnitCircle * shakeMagnitude / (1 - shakeDuration / 0.1f);
             shakeDuration -= Time.deltaTime;
-            print(shakeDuration);
-            print(shakeOffset);
         }
 
         transform.position = desiredPosition + shakeOffset;

@@ -1,16 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class AestheticItem
+{
+    public GameObject prefab; // The prefab/GameObject to spawn
+    public float NormalizingSpawnDistance = 2500f;
+    public AnimationCurve spawnChanceCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f); // The curve to define spawn chance
+
+    // Method to evaluate the spawn chance at a given point
+    public float EvaluateSpawnChance(float distance)
+    {
+        float duration = distance / NormalizingSpawnDistance;
+        return spawnChanceCurve.Evaluate(duration);
+    }
+}
+
 [RequireComponent(typeof(LineRenderer))]
-public class GrowingCurvedLine : MonoBehaviour
+public class PathGenerator : MonoBehaviour
 {
 
-    [System.Serializable]
-    public class AestheticItem
-    {
-        public GameObject prefab; // The prefab/GameObject to spawn
-        public float spawnChance; // The chance to spawn this item (0 to 1)
-    }
+    
+
     public Transform playerTransform; // The player or the target position
     public float maxDistance = 20f; // Maximum distance from the player
     public float growthRate = 0.5f; // Rate at which the line grows
@@ -24,7 +35,6 @@ public class GrowingCurvedLine : MonoBehaviour
 
     private LineRenderer lineRenderer;
     public List<Vector3> points;
-    private float distanceTraveled = 0f;
     private Vector3 lastPointPosition;
     private float timeElapsed = 0f;
 
@@ -106,7 +116,7 @@ public class GrowingCurvedLine : MonoBehaviour
 
             foreach (var item in attachableItems)
             {
-                cumulativeChance += item.spawnChance;
+                cumulativeChance += item.EvaluateSpawnChance(playerTransform.position.y);
                 if (randomValue <= cumulativeChance)
                 {
                     // Random position within the spawn radius
@@ -134,7 +144,7 @@ public class GrowingCurvedLine : MonoBehaviour
 
             foreach (var item in aestheticItems)
             {
-                cumulativeChance += item.spawnChance;
+                cumulativeChance += item.EvaluateSpawnChance(1);
                 if (randomValue <= cumulativeChance)
                 {
                     // Random position within the spawn radius

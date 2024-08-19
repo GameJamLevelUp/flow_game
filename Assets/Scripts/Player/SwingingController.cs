@@ -6,6 +6,7 @@ public class SwingingController : MonoBehaviour
     public LineRenderer lineRenderer;
     public float swingForce = 10f;
     private bool isSwinging = false;
+    private bool isPulling = false;
     private Vector2 swingDirection;
     private Vector2 attachPoint;
     private Rigidbody2D rb;
@@ -28,20 +29,22 @@ public class SwingingController : MonoBehaviour
             gameUI.SetDistance(transform.position.y, rb.velocity.magnitude);
         }
 
-        if (Input.GetMouseButton(0) && !isSwinging)
+        if ((Input.GetMouseButton(0) || Input.GetMouseButton(1)) && !isSwinging)
         {
             FindClosestAttachable();
         }
 
-        if (Input.GetMouseButton(0) && isSwinging)
+        if ((Input.GetMouseButton(0) || Input.GetMouseButton(1)) && isSwinging)
         {
             Swing();
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
         {
             StopSwinging();
         }
+
+        isPulling = Input.GetMouseButton(1);
     }
 
     void FindClosestAttachable()
@@ -67,8 +70,6 @@ public class SwingingController : MonoBehaviour
 
         // Calculate the angle between the two directions
         float angle = Vector3.Angle(movementDirection, directionToAttachablePoint);
-
-        print(angle);
 
         // Check if the angle is between 80 and 100 degrees
         // if (angle >= 80f && angle <= 100f)
@@ -102,12 +103,24 @@ public class SwingingController : MonoBehaviour
         swingDirection = tangentialSpeed > 0 ? perpendicularDirection : -perpendicularDirection;
 
         // Update the player's velocity to maintain the current tangential speed
-        rb.velocity = swingDirection * Mathf.Abs(tangentialSpeed) * 1.001f;
+        rb.velocity = swingDirection * Mathf.Abs(tangentialSpeed);
 
+        if (isPulling)
+        {
+            float pullStrength = 25f; // Adjust the strength of the pull force
+            Vector2 pullForce = directionToAttachPoint * pullStrength;
+            rb.AddForce(pullForce, ForceMode2D.Force);
+        }
+
+        else 
+        {
+            rb.velocity *= 1.001f;
+        }
         // Update the line renderer positions
         lineRenderer.SetPosition(0, playerPosition);
         lineRenderer.SetPosition(1, attachPoint);
     }
+
 
     void StopSwinging()
     {
