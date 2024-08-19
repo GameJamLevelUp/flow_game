@@ -88,6 +88,14 @@ private void Update()
 
         // Store the current angle as the previous angle for the next update
         previousAngle = currentAngle;
+
+        if (Mathf.Abs(cumulativeAngle) > 360)
+        {
+            OnComplete();
+            OnDisconnect();
+            cumulativeAngle = 0f;
+            previousAngle = 0f;
+        }
     }
 }
 

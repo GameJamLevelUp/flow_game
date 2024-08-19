@@ -41,6 +41,18 @@ public class GameUI : MonoBehaviour
         damageTaken++;
     }
 
+    public void ReceiveHealth()
+    {
+        if (damageTaken >= 0)
+        {
+            damageTaken--;
+        
+            SetHealthSegmentTransparency(damageTaken, 1f); 
+
+        }
+        
+    }
+
     // Set the transparency of a specific health segment
     private void SetHealthSegmentTransparency(int index, float alpha)
     {
