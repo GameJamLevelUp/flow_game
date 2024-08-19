@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
@@ -26,6 +27,7 @@ public class GameUI : MonoBehaviour
         {
             StartCoroutine(SaveHighScoreAndSlowDown(prevDistance));
             animator.SetTrigger("TriggerDieAnimation");
+            leaderboardAnimator.SetTrigger("TriggerDieAnimation");
             hasDied = true;
             return;
         }
@@ -52,6 +54,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     private bool hasDied = false;
     public Animator animator;
+    public Animator leaderboardAnimator;
     private float prevDistance = 0;
 
     public void SetDistance(float distance, float speed)
@@ -139,6 +142,10 @@ public class GameUI : MonoBehaviour
         
     }
 
+    [System.Serializable]
+    public class PostSaveEvent : UnityEvent { } // Serializable UnityEvent class
+
+    public PostSaveEvent onHighScoreSaved; // Public UnityEvent field
     private IEnumerator SaveHighScoreAndSlowDown(float score)
     {
         float initialTimeScale = Time.timeScale;
@@ -153,13 +160,13 @@ public class GameUI : MonoBehaviour
             elapsedTime += Time.unscaledDeltaTime;
             yield return null;
         }
-        // Time.timeScale = targetTimeScale;
+        Time.timeScale = targetTimeScale;
 
         // Save the high score
         HighScoreManager.TrySaveHighScore(score, highScoreText);
 
-        // // Restore the time scale (optional if you want the game to resume)
-        // yield return new WaitForSecondsRealtime(1f); // Optional delay before restoring time scale
+        // Restore the time scale (optional if you want the game to resume)
+        // Uncomment if you want to restore the time scale
         // elapsedTime = 0f;
         // while (elapsedTime < duration)
         // {
@@ -168,5 +175,8 @@ public class GameUI : MonoBehaviour
         //     yield return null;
         // }
         // Time.timeScale = initialTimeScale;
+
+        // Call the delegate if it's assigned
+        onHighScoreSaved?.Invoke();
     }
 }

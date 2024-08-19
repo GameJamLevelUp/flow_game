@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 public class ParticleLightEmitter : MonoBehaviour
 {
     public GameObject lightPrefab; // The prefab of the 2D light to attach to particles
-    public ParticleSystem particleSystem; // The particle system to which the lights will be attached
+    new public ParticleSystem particleSystem; // The particle system to which the lights will be attached
 
     private ParticleSystem.Particle[] particles; // Array to hold particles
     private Light2D[] lights; // Array to hold the lights attached to the particles

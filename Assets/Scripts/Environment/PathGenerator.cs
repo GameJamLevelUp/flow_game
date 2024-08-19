@@ -24,7 +24,6 @@ public class GrowingCurvedLine : MonoBehaviour
 
     private LineRenderer lineRenderer;
     public List<Vector3> points;
-    private float distanceTraveled = 0f;
     private Vector3 lastPointPosition;
     private float timeElapsed = 0f;
 

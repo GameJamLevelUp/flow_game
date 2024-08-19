@@ -3,7 +3,7 @@ using UnityEngine;
 public class AlignParticleRotation : MonoBehaviour
 {
     public Rigidbody2D rb;                // The Rigidbody2D to track
-    public ParticleSystem particleSystem; // The ParticleSystem whose rotation and emission rate will be updated
+    new public ParticleSystem particleSystem; // The ParticleSystem whose rotation and emission rate will be updated
 
     public float emissionMultiplier = 1.0f; // Multiplier to scale emission rate based on speed
 

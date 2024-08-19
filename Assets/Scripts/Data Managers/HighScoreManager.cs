@@ -54,7 +54,7 @@ public static class HighScoreManager
         {
             currentHighScore = GetHighScore();
         }
-        catch (Exception e)
+        catch (Exception)
         {
             return false;
         }

@@ -68,8 +68,6 @@ public class SwingingController : MonoBehaviour
         // Calculate the angle between the two directions
         float angle = Vector3.Angle(movementDirection, directionToAttachablePoint);
 
-        print(angle);
-
         // Check if the angle is between 80 and 100 degrees
         // if (angle >= 80f && angle <= 100f)
         // {
