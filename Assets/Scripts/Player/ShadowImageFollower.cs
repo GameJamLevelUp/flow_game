@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShadowImageFollower : MonoBehaviour
@@ -11,8 +9,13 @@ public class ShadowImageFollower : MonoBehaviour
     {
         if (followTransform != null)
         {
+            // Convert the local offset to world space
+            Vector3 worldOffsetPosition = followTransform.TransformPoint(worldOffset);
+
             // Calculate the world position with the desired offset
-            Vector3 worldPosition = followTransform.position + followTransform.TransformVector(worldOffset);
+            Vector3 worldPosition = followTransform.position + (worldOffsetPosition - followTransform.position);
+
+            // Update position and rotation
             transform.position = worldPosition;
             transform.rotation = followTransform.rotation;
         }
