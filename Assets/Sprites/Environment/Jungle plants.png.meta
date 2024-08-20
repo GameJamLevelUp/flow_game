@@ -1,0 +1,758 @@
+fileFormatVersion: 2
+guid: ef69210c1d81e3c41bf0cca69400c49a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jungle plants_0
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 2472
+        width: 504
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749c659c8f7278e4d9d31a575cbd3d38
+      internalID: -1688479721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_1
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 2479
+        width: 504
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f15d7a07491174785059a7b0dc2e97
+      internalID: 751265783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_2
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 2450
+        width: 502
+        height: 501
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a609f26639f6a44ab2a727f3c9bda18
+      internalID: 405666947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_3
+      rect:
+        serializedVersion: 2
+        x: 1798
+        y: 2457
+        width: 504
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf082531cf5900c4a97a6b8b8ed50986
+      internalID: 1974358193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_4
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 2712
+        width: 156
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99411d62c83f0b84db72b175a55ceba7
+      internalID: 1921568562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_5
+      rect:
+        serializedVersion: 2
+        x: 2598
+        y: 2768
+        width: 190
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ecf3129d1f0a3f46a09d76a4dc0ec04
+      internalID: -719097811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_6
+      rect:
+        serializedVersion: 2
+        x: 2799
+        y: 2658
+        width: 115
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19686b24a7a535547bfe696fc130c712
+      internalID: 1643309504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_14
+      rect:
+        serializedVersion: 2
+        x: 2598
+        y: 2399
+        width: 60
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fc56285da523a4d863e80ad3b36454
+      internalID: 1026909847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_23
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 2230
+        width: 353
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e436ecfc14ad4b4bac1fb784de9a0ac
+      internalID: 924903927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_24
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 2230
+        width: 353
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e53be6eaaebd51c43aac7a257f96b60f
+      internalID: 1375828580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_60
+      rect:
+        serializedVersion: 2
+        x: 2598
+        y: 2198
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e046963a6baa3489986717844449ac
+      internalID: -1858345195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_112
+      rect:
+        serializedVersion: 2
+        x: 2598
+        y: 1999
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acde65903b8352942bef1812a1ed4aa5
+      internalID: -832224679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_114
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1719
+        width: 2243
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6751b35707f0a54ba307c4020f68bf2
+      internalID: -519722619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_115
+      rect:
+        serializedVersion: 2
+        x: 2598
+        y: 1798
+        width: 57
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a34801663420ba542803f4cf7fe3fe08
+      internalID: 1242305156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_116
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1539
+        width: 860
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e526ceb6c5044134aa5fd0530857efa3
+      internalID: 139466648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_117
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1329
+        width: 1773
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3279eca296da4344a0c434c29570dff
+      internalID: 1445142973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_118
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 915
+        width: 231
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7af48bd8a23d7f44a4d03d8deef44f8
+      internalID: -2135567698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_119
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 856
+        width: 301
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0cca199ef8240542a5e838fed031ff5
+      internalID: -2123104735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_120
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 827
+        width: 296
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07eb1062b29887741983536c124e2eb2
+      internalID: 1322243415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_121
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 909
+        width: 226
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682f044947ba76a4bab2d21e0ecc48b9
+      internalID: 956764517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_122
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 799
+        width: 309
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4caea7826db73bc40a77c4ba5cd4b574
+      internalID: 2094094487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_123
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 991
+        width: 334
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a636d9985fba934083df295b431be3c
+      internalID: -643738725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_124
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 940
+        width: 601
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b8ae248cb8f41498de0c4b3c5cff65
+      internalID: -676751053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jungle plants_125
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 452
+        width: 397
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d75b1b5e7427e74e96c29ed3d87c868
+      internalID: 491080387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Jungle plants_0: -1688479721
+      Jungle plants_1: 751265783
+      Jungle plants_10: 1536020407
+      Jungle plants_100: -263120418
+      Jungle plants_101: -1542106076
+      Jungle plants_102: 182810773
+      Jungle plants_103: -1979155756
+      Jungle plants_104: 491615539
+      Jungle plants_105: -170744576
+      Jungle plants_106: -595766571
+      Jungle plants_107: -1833203361
+      Jungle plants_108: -2050527580
+      Jungle plants_109: -220382818
+      Jungle plants_11: 1993902119
+      Jungle plants_110: -244003310
+      Jungle plants_111: 1186678185
+      Jungle plants_112: -832224679
+      Jungle plants_113: -651435447
+      Jungle plants_114: -519722619
+      Jungle plants_115: 1242305156
+      Jungle plants_116: 139466648
+      Jungle plants_117: 1445142973
+      Jungle plants_118: -2135567698
+      Jungle plants_119: -2123104735
+      Jungle plants_12: 1053975902
+      Jungle plants_120: 1322243415
+      Jungle plants_121: 956764517
+      Jungle plants_122: 2094094487
+      Jungle plants_123: -643738725
+      Jungle plants_124: -676751053
+      Jungle plants_125: 491080387
+      Jungle plants_126: -1789592332
+      Jungle plants_13: 973063768
+      Jungle plants_14: 1026909847
+      Jungle plants_15: 853469065
+      Jungle plants_16: 827602765
+      Jungle plants_17: -879630763
+      Jungle plants_18: -697087584
+      Jungle plants_19: 399204510
+      Jungle plants_2: 405666947
+      Jungle plants_20: 856132036
+      Jungle plants_21: 1466962725
+      Jungle plants_22: -967464028
+      Jungle plants_23: 924903927
+      Jungle plants_24: 1375828580
+      Jungle plants_25: 549563217
+      Jungle plants_26: -1592345198
+      Jungle plants_27: -1701291806
+      Jungle plants_28: 284624138
+      Jungle plants_29: -1166626581
+      Jungle plants_3: 1974358193
+      Jungle plants_30: 1867266534
+      Jungle plants_31: 917556070
+      Jungle plants_32: -874088201
+      Jungle plants_33: 308964233
+      Jungle plants_34: -1152601874
+      Jungle plants_35: 720439066
+      Jungle plants_36: 642811817
+      Jungle plants_37: 89936894
+      Jungle plants_38: 1979357548
+      Jungle plants_39: 2080302492
+      Jungle plants_4: 1921568562
+      Jungle plants_40: -1119036209
+      Jungle plants_41: -1275105751
+      Jungle plants_42: -1267430852
+      Jungle plants_43: -1773338350
+      Jungle plants_44: 521520380
+      Jungle plants_45: -1827856943
+      Jungle plants_46: -385849449
+      Jungle plants_47: -382522750
+      Jungle plants_48: 1952076381
+      Jungle plants_49: -131633614
+      Jungle plants_5: -719097811
+      Jungle plants_50: -1419049870
+      Jungle plants_51: 1085877830
+      Jungle plants_52: -435849687
+      Jungle plants_53: -755143800
+      Jungle plants_54: -1839839692
+      Jungle plants_55: -23814835
+      Jungle plants_56: 2009546722
+      Jungle plants_57: 459645048
+      Jungle plants_58: -1800877788
+      Jungle plants_59: 1372014124
+      Jungle plants_6: 1643309504
+      Jungle plants_60: -1858345195
+      Jungle plants_61: 1200589347
+      Jungle plants_62: -1557452026
+      Jungle plants_63: -2082018383
+      Jungle plants_64: 1528735377
+      Jungle plants_65: 1367080962
+      Jungle plants_66: 1102695964
+      Jungle plants_67: -2100828514
+      Jungle plants_68: 1340178032
+      Jungle plants_69: -2012470877
+      Jungle plants_7: 1428128022
+      Jungle plants_70: -1163883907
+      Jungle plants_71: 1586790030
+      Jungle plants_72: -179152377
+      Jungle plants_73: 547222994
+      Jungle plants_74: -454056708
+      Jungle plants_75: 1991549011
+      Jungle plants_76: -435270113
+      Jungle plants_77: -682946377
+      Jungle plants_78: 1250085955
+      Jungle plants_79: 1714310023
+      Jungle plants_8: 1599924568
+      Jungle plants_80: -1982770102
+      Jungle plants_81: -1237706462
+      Jungle plants_82: -1094215505
+      Jungle plants_83: -89718544
+      Jungle plants_84: 783369713
+      Jungle plants_85: -1260617995
+      Jungle plants_86: -32922405
+      Jungle plants_87: 1617652024
+      Jungle plants_88: -1053106460
+      Jungle plants_89: 445719031
+      Jungle plants_9: -1157025867
+      Jungle plants_90: -473618324
+      Jungle plants_91: -1177113721
+      Jungle plants_92: -1742863951
+      Jungle plants_93: 1387551292
+      Jungle plants_94: -1087398891
+      Jungle plants_95: -1523487508
+      Jungle plants_96: -1454972473
+      Jungle plants_97: -1423304609
+      Jungle plants_98: -1342647292
+      Jungle plants_99: -1119469247
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
