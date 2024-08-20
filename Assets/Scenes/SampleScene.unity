@@ -14376,17 +14376,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1742804940}
   maxDistance: 150
-  growthRate: 5
-  pointInterval: 2
-  sineWaveSettingsList:
-  - frequency: 1
-    amplitude: 40
-  - frequency: 2
-    amplitude: 25
-  - frequency: 7
-    amplitude: 2
-  - frequency: 0.6
-    amplitude: 30
+  growthRate: 12
+  curveAmount: 1
+  curveFrequency: 1
+  curveAmplitude: 5
   aestheticItems:
   - prefab: {fileID: 7770946192411752871, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
     NormalizingSpawnDistance: 2500
