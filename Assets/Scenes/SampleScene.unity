@@ -648,7 +648,7 @@ RectTransform:
   m_Father: {fileID: 2085407634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1769,6 +1769,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1576145282}
+  - {fileID: 736339999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
@@ -1859,8 +1860,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 100
+  m_ChildAlignment: 1
+  m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -2287,7 +2288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e0af69e56546f48940431821bdc757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeedThreshold: 20
+  playerSpeedThreshold: 20000
   damageAmount: 10
   shouldDestroy: 0
   explosionParticleSystem: {fileID: 0}
@@ -2872,7 +2873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &736339999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3034,6 +3035,63 @@ Transform:
   - {fileID: 1180018063}
   m_Father: {fileID: 2115760698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &752031586
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3799883948007957355, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_Name
+      value: Collectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.97152
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.59723
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950027633043020670, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 761fb6ab3ad903d40ac3f1da7e6f21d4, type: 3}
 --- !u!1 &797692471
 GameObject:
   m_ObjectHideFlags: 0
@@ -10044,7 +10102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e0af69e56546f48940431821bdc757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeedThreshold: 20
+  playerSpeedThreshold: 20000
   damageAmount: 10
   shouldDestroy: 0
   explosionParticleSystem: {fileID: 0}
@@ -10058,7 +10116,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1784495833}
   - component: {fileID: 1784495834}
-  - component: {fileID: 1784495835}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -10747,21 +10804,47 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 0.5
         inSlope: 0
-        outSlope: 1
-        tangentMode: 0
+        outSlope: 0
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: 1
+        value: 0.5
+        inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - prefab: {fileID: 3504844293153953066, guid: 5d685e623229a6c49b42b28d3691d4e2, type: 3}
+    NormalizingSpawnDistance: 2500
+    spawnChanceCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -11241,4 +11324,4 @@ SceneRoots:
   - {fileID: 2115760698}
   - {fileID: 1441951069}
   - {fileID: 428952541}
-  - {fileID: 736339999}
+  - {fileID: 752031586}
