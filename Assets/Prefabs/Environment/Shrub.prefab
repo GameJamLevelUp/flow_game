@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7658069244335321636}
   - component: {fileID: 6649511678154869423}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: Shrub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,8 +89,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1130683265
   m_SortingLayer: 1
-  m_SortingOrder: 100
-  m_Sprite: {fileID: 1628561665, guid: 32f6ec7745112ed4799fa972f58cfb09, type: 3}
+  m_SortingOrder: 90
+  m_Sprite: {fileID: 1322243415, guid: ef69210c1d81e3c41bf0cca69400c49a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -173,8 +173,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1130683265
   m_SortingLayer: 1
-  m_SortingOrder: 99
-  m_Sprite: {fileID: 1628561665, guid: 32f6ec7745112ed4799fa972f58cfb09, type: 3}
+  m_SortingOrder: 89
+  m_Sprite: {fileID: 1322243415, guid: ef69210c1d81e3c41bf0cca69400c49a, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
