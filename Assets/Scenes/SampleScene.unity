@@ -2200,6 +2200,7 @@ MonoBehaviour:
   camera: {fileID: 519420031}
   shakeMagnitude: 0.1
   shakeDuration: 0.5
+  volume: {fileID: 1441951068}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
