@@ -54,7 +54,7 @@ public class PopulateLeaderboard : MonoBehaviour
             int newScore = (int)playerScore;
             int updatedScore = scoreInMeters + newScore;
 
-            Leaderboards.flow_game_leaderboard.UploadNewEntry(playerName, updatedScore, (bool success) =>
+            Leaderboards.flow_game_leaderboard.UploadNewEntry(playerName, scoreInMeters, (bool success) =>
             {
                 if (success)
                 {
