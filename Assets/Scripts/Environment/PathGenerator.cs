@@ -30,7 +30,7 @@ public class PathGenerator : MonoBehaviour
     public float curveAmplitude = 1f; // Amplitude of the curve
     public List<AestheticItem> aestheticItems; // List of aesthetic items
     public List<AestheticItem> attachableItems; // List of attachable items
-    public float spawnRadius = 2f; // Radius within which to spawn the attachable
+    public float spawnRadius = 7f; // Radius within which to spawn the attachable
 
     private LineRenderer lineRenderer;
     public List<Vector3> points;
