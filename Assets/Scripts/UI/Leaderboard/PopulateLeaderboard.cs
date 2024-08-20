@@ -40,7 +40,6 @@ public class PopulateLeaderboard : MonoBehaviour
         if (nameInputField != null)
         {
             playerName = nameInputField.text;
-            Debug.Log(playerName);
         }
         else
         {
@@ -59,8 +58,6 @@ public class PopulateLeaderboard : MonoBehaviour
             {
                 if (success)
                 {
-                    Debug.Log($"High score {updatedScore} uploaded successfully.");
-                    // Optionally, you can call FetchAndPopulateLeaderboard() again to refresh the leaderboard
                     FetchAndPopulateLeaderboard();
                 }
                 else

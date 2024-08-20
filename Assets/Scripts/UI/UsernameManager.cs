@@ -32,7 +32,6 @@ public class UsernameManager : MonoBehaviour
         try
         {
             File.WriteAllText(usernameFilePath, username);
-            Debug.Log("Username saved successfully.");
         }
         catch (Exception e)
         {

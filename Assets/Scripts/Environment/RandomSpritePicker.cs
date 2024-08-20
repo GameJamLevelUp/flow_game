@@ -33,7 +33,6 @@ public class RandomSpritePicker : MonoBehaviour
         {
             Sprite selectedSprite = PickRandomSprite();
             spriteRenderer.sprite = selectedSprite;
-            Debug.Log("Rock: " + transform.position);
 
             Sprite selectedReflection = PickReflectionSprite(selectedSprite);
             if (selectedReflection != null)
@@ -57,7 +56,6 @@ public class RandomSpritePicker : MonoBehaviour
         {
             Vector3 reflectionLocation = new Vector3(transform.position.x, transform.position.y - 1.3f, transform.position.z);
             GameObject reflection = Instantiate(reflectionPrefab, reflectionLocation, Quaternion.identity);
-            Debug.Log("Reflection: " + reflection.transform.position);
             //reflection.transform.position.Set(reflection.transform.position.x, reflection.transform.position.y - 1, reflection.transform.position.z);
 
             SpriteRenderer reflectionRenderer = reflection.GetComponent<SpriteRenderer>();

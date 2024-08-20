@@ -15,7 +15,6 @@ public abstract class Attachable : MonoBehaviour
     public void OnConnect(Transform pT)
     {
         playerTransform = pT;
-        Debug.Log("connect");
         if (canvas != null)
         {
             canvas.gameObject.SetActive(true);
@@ -48,7 +47,6 @@ public abstract class Attachable : MonoBehaviour
 
     public void OnDisconnect()
     {
-        Debug.Log("disconnect");
         canvas.gameObject.SetActive(false);
     }
 

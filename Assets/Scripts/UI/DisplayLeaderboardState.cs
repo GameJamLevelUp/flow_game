@@ -24,8 +24,6 @@ public class DisplayLeaderboardState : MonoBehaviour
 
         // Check if a username is set
         string username = usernameManager.GetUsername();
-
-        Debug.Log($"Player name is {username}, {string.IsNullOrEmpty(username)}");
         
         if (string.IsNullOrEmpty(username))
         {
@@ -39,7 +37,6 @@ public class DisplayLeaderboardState : MonoBehaviour
             // Username found, show the content and hide nameInput
             nameInput.gameObject.SetActive(false);
             nameInput.GetComponent<TMP_InputField>().text = username;
-            Debug.Log($"Set text to {nameInput.GetComponent<TMP_InputField>().text}");
             content.SetActive(true);
         }
     }
