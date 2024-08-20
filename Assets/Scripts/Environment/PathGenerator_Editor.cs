@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(PathGenerator))]
 public class PathGenerator_Editor : Editor
 {
@@ -84,3 +85,4 @@ public class PathGenerator_Editor : Editor
         Handles.Label(rect.position + new Vector2(10, 10 + 20 * index), label);
     }
 }
+#endif
