@@ -26,7 +26,6 @@ public class PathGenerator : MonoBehaviour
     public float maxDistance = 20f; // Maximum distance from the player
     public float growthRate = 0.5f; // Rate at which the line grows
     public float curveAmount = 1f; // Amount of curvature
-    public float pointInterval = 1f; // Distance interval between new points
     public float curveFrequency = 1f; // Frequency of the curve
     public float curveAmplitude = 1f; // Amplitude of the curve
     public List<AestheticItem> aestheticItems; // List of aesthetic items
@@ -81,11 +80,11 @@ public class PathGenerator : MonoBehaviour
 
     Vector3 GenerateNextPoint()
     {
-        timeElapsed += Time.deltaTime;
+        
 
         // Generate a sinusoidal curve effect
-        float curveX = Mathf.Sin(timeElapsed * curveFrequency) * curveAmplitude;
-        float curveZ = Mathf.Cos(timeElapsed * curveFrequency) * curveAmplitude;
+        float curveX = Mathf.Sin(lastPointPosition.y * Mathf.Deg2Rad * curveFrequency) * curveAmplitude;
+        float curveZ = Mathf.Cos(lastPointPosition.y * Mathf.Deg2Rad * curveFrequency) * curveAmplitude;
 
         // Direction with sinusoidal variations for more natural curves
         Vector3 direction = Vector3.up;

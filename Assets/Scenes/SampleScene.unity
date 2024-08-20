@@ -14377,10 +14377,16 @@ MonoBehaviour:
   playerTransform: {fileID: 1742804940}
   maxDistance: 150
   growthRate: 5
-  curveAmount: 20
   pointInterval: 2
-  curveFrequency: 1
-  curveAmplitude: 1
+  sineWaveSettingsList:
+  - frequency: 1
+    amplitude: 40
+  - frequency: 2
+    amplitude: 25
+  - frequency: 7
+    amplitude: 2
+  - frequency: 0.6
+    amplitude: 30
   aestheticItems:
   - prefab: {fileID: 7770946192411752871, guid: ee9008c4afa55b547a8872a6df1ed004, type: 3}
     NormalizingSpawnDistance: 2500
@@ -14707,7 +14713,7 @@ Transform:
   m_GameObject: {fileID: 2115760695}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11047137, y: 0.13312314, z: 0.22038834}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
