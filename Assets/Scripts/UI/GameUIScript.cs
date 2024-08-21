@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -43,7 +44,7 @@ public class GameUI : MonoBehaviour
 
     public void ReceiveHealth()
     {
-        if (damageTaken >= 0)
+        if (damageTaken > 0)
         {
             damageTaken--;
         
@@ -152,6 +153,22 @@ public class GameUI : MonoBehaviour
             Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * timeScaleSpeed);
         }
         
+    }
+
+    public void RemoveSlowMoValue(float amount, Rigidbody2D player, Vector2 newVelocity)
+    {
+        if (slowMoSlider.value >= amount)
+        {
+            slowMoSlider.value -= amount;
+            slowMoSlider.value = Mathf.Clamp(slowMoSlider.value, 0, slowMoSlider.maxValue); // Clamp to max value
+
+            player.velocity = newVelocity;
+        }
+        
+        isRegenerating = false;
+        regenTimer = 0f;
+        sliderAnimator.SetFloat("PlaySpeed", -1); // Set PlaySpeed to 1
+
     }
 
     [System.Serializable]

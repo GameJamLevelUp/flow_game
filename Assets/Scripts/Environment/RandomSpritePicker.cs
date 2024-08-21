@@ -24,7 +24,7 @@ public class RandomSpritePicker : MonoBehaviour
 
     private SpriteRenderer spriteRenderer; // SpriteRenderer to assign the selected sprite
     private SpriteRenderer reflectionRenderer; // SpriteRenderer to assign the selected sprite
-
+    public bool cumulative = true;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer attached to the same GameObject
@@ -32,7 +32,14 @@ public class RandomSpritePicker : MonoBehaviour
         if (spriteRenderer != null && spriteList.Count > 0)
         {
             Sprite selectedSprite = PickRandomSprite();
+            if (selectedSprite == null)
+            {
+                Destroy(gameObject);
+                return;
+            }
             spriteRenderer.sprite = selectedSprite;
+
+            gameObject.GetComponent<StaticShadowSpawner>()?.SpawnShadow(spriteRenderer);
 
             Sprite selectedReflection = PickReflectionSprite(selectedSprite);
             if (selectedReflection != null)
@@ -76,26 +83,44 @@ public class RandomSpritePicker : MonoBehaviour
 
     Sprite PickRandomSprite()
     {
-        float totalChance = 0f;
-        foreach (var item in spriteList)
+        if (cumulative)
         {
-            totalChance += item.chance;
-        }
-
-        float randomValue = Random.value * totalChance;
-        float cumulativeChance = 0f;
-
-        foreach (var item in spriteList)
-        {
-            cumulativeChance += item.chance;
-            if (randomValue <= cumulativeChance)
+            float totalChance = 0f;
+            foreach (var item in spriteList)
             {
-                return item.sprite;
+                totalChance += item.chance;
             }
-        }
 
-        // Return the last sprite in the list as a fallback
-        return spriteList[spriteList.Count - 1].sprite;
+            float randomValue = Random.value * totalChance;
+            float cumulativeChance = 0f;
+
+            foreach (var item in spriteList)
+            {
+                cumulativeChance += item.chance;
+                if (randomValue <= cumulativeChance)
+                {
+                    return item.sprite;
+                }
+            }
+
+            // Return the last sprite in the list as a fallback
+            return spriteList[spriteList.Count - 1].sprite;
+        }
+        else 
+        {
+            float randomValue = Random.value;
+
+            foreach (var item in spriteList)
+            {
+                
+                if (randomValue <= item.chance)
+                {
+                    return item.sprite;
+                }
+            }
+            return null;
+        }
+        
     }
 
     Sprite PickReflectionSprite(Sprite selectedSprite)

@@ -10,13 +10,10 @@ public class ShadowImageFollower : MonoBehaviour
         if (followTransform != null)
         {
             // Convert the local offset to world space
-            Vector3 worldOffsetPosition = followTransform.TransformPoint(worldOffset);
+            Vector3 worldOffsetPosition = followTransform.position + worldOffset;
 
             // Calculate the world position with the desired offset
-            Vector3 worldPosition = followTransform.position + (worldOffsetPosition - followTransform.position);
-
-            // Update position and rotation
-            transform.position = worldPosition;
+            transform.position = worldOffsetPosition;
             transform.rotation = followTransform.rotation;
         }
     }

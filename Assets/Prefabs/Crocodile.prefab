@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5721487326011932964}
   - component: {fileID: 7272566317252465816}
   - component: {fileID: 3481931371865895242}
+  - component: {fileID: 5592216982474174233}
   m_Layer: 0
   m_Name: Crocodile
   m_TagString: Attachable
@@ -142,6 +143,23 @@ MonoBehaviour:
   damageAmount: 10
   shouldDestroy: 1
   explosionParticleSystem: {fileID: 5621311327593932116}
+--- !u!114 &5592216982474174233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799883948007957355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2221a08533591ba48bdb6132a425d166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 0}
+  alignWithFlowDirection: 1
+  minAngle: -8
+  maxAngle: 8
+  degreesOffset: -90
 --- !u!1 &4774447333842373385
 GameObject:
   m_ObjectHideFlags: 0

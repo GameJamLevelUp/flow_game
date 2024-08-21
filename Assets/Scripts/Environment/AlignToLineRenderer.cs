@@ -22,11 +22,15 @@ public class AlignToLineRenderer : MonoBehaviour
             // Calculate the normal direction between the 3 points
             Vector2 normalDirection = CalculateNormalDirection(closestPoints);
 
-            // Move the object in the normal direction
-            transform.position += (Vector3)(normalDirection.normalized * moveDistance);
+            // Determine which side of the line the object is on
+            Vector2 pointToObj = (Vector2)transform.position - closestPoints[1];
+            float side = Mathf.Sign(Vector2.Dot(pointToObj, normalDirection));
+
+            // Move the object in the correct normal direction based on the side
+            transform.position += (Vector3)(normalDirection.normalized * moveDistance * side);
 
             // Rotate the object to point in the opposite direction of the normal
-            RotateToOppositeNormal(normalDirection);
+            RotateToOppositeNormal(normalDirection * side);
         }
     }
 

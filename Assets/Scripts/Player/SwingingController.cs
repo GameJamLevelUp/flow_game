@@ -6,6 +6,7 @@ public class SwingingController : MonoBehaviour
     public LineRenderer lineRenderer;
     public float swingForce = 10f;
     private bool isSwinging = false;
+    public float pushForce = 25f;
     private bool isPulling = false;
     private Vector2 swingDirection;
     private Vector2 attachPoint;
@@ -31,22 +32,42 @@ public class SwingingController : MonoBehaviour
             gameUI.SetDistance(transform.position.y, rb.velocity.magnitude);
         }
 
-        if ((Input.GetMouseButton(0) || Input.GetMouseButton(1)) && !isSwinging)
+        if (Input.GetMouseButton(0) && !isSwinging)
         {
             FindClosestAttachable();
         }
 
-        if ((Input.GetMouseButton(0) || Input.GetMouseButton(1)) && isSwinging)
+        if (Input.GetMouseButton(0) && isSwinging)
         {
             Swing();
         }
 
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(0))
         {
             StopSwinging();
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            ApplyPushForce();
+        }
+
         isPulling = Input.GetMouseButton(1);
+    }
+
+    [Range(0f, 1f)] public float forceStealPercentage = 0.5f;
+    [Range(0f, 1f)] public float forcePrice = 0.17f;
+
+    void ApplyPushForce()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 directionToMouse = (mousePosition - (Vector2)transform.position).normalized;
+
+        Vector2 originalVelocity = rb.velocity;
+
+        Vector2 newVelocity = originalVelocity * (1f - forceStealPercentage) + forceStealPercentage * originalVelocity.magnitude * directionToMouse;
+
+        gameUI.RemoveSlowMoValue(forcePrice, rb, newVelocity);
     }
 
     void FindClosestAttachable()
@@ -105,7 +126,6 @@ public class SwingingController : MonoBehaviour
         {
             float pullStrength = 25f; // Adjust the strength of the pull force
             Vector2 pullForce = directionToAttachPoint * pullStrength;
-            rb.AddForce(pullForce, ForceMode2D.Force);
         }
         else 
         {

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WaitForStart : MonoBehaviour
 {
-    public GameObject gameplayManager;
+    public GameObject[] gameplayManagers;
     public GameObject startPanel;
 
     void Start()
@@ -15,9 +15,12 @@ public class WaitForStart : MonoBehaviour
     IEnumerator WaitForRightClick()
     {
         // Pause the game or disable gameplay mechanics
-        if (gameplayManager != null)
+        if (gameplayManagers != null)
         {
-            gameplayManager.SetActive(false);
+            foreach (GameObject manager in gameplayManagers)
+            {
+                manager.SetActive(false);
+            }
         }
 
         if (startPanel != null)
@@ -38,10 +41,12 @@ public class WaitForStart : MonoBehaviour
         }
 
         // Enable gameplay mechanics
-        if (gameplayManager != null)
+        if (gameplayManagers != null)
         {
-            gameplayManager.SetActive(true);
+            foreach (GameObject manager in gameplayManagers)
+            {
+                manager.SetActive(true);
+            }
         }
-
     }
 }
