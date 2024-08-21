@@ -39,6 +39,8 @@ public class RandomSpritePicker : MonoBehaviour
             }
             spriteRenderer.sprite = selectedSprite;
 
+            gameObject.GetComponent<StaticShadowSpawner>()?.SpawnShadow(spriteRenderer);
+
             Sprite selectedReflection = PickReflectionSprite(selectedSprite);
             if (selectedReflection != null)
             {

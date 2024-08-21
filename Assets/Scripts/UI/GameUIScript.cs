@@ -154,6 +154,19 @@ public class GameUI : MonoBehaviour
         
     }
 
+    public void RemoveSlowMoValue(float amount)
+    {
+        // Remove the specified amount from the slow-mo slider value
+        slowMoSlider.value -= amount;
+        slowMoSlider.value = Mathf.Clamp(slowMoSlider.value, 0, slowMoSlider.maxValue); // Clamp to max value
+
+        isRegenerating = false;
+        regenTimer = 0f;
+
+        sliderAnimator.SetFloat("PlaySpeed", -1); // Set PlaySpeed to 1
+
+    }
+
     [System.Serializable]
     public class PostSaveEvent : UnityEvent { } // Serializable UnityEvent class
 

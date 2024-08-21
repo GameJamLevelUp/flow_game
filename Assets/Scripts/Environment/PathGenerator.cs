@@ -137,7 +137,7 @@ public class PathGenerator : MonoBehaviour
 
     private void SpawnAesthetic(Vector3 spawnPosition)
     {
-        if (aestheticItems != null && aestheticItems.Count > 0)
+        if (aestheticItems != null && aestheticItems.Count > 0 && spawnPosition.y > 100)
         {
             // Randomly select an AestheticItem based on their spawn chances
             float randomValue = Random.value;
