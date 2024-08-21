@@ -365,9 +365,9 @@ TextureImporter:
       name: Jungle plants_114
       rect:
         serializedVersion: 2
-        x: 46
+        x: 111
         y: 1719
-        width: 2243
+        width: 2111
         height: 239
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -428,9 +428,9 @@ TextureImporter:
       name: Jungle plants_117
       rect:
         serializedVersion: 2
-        x: 998
+        x: 1078
         y: 1329
-        width: 1773
+        width: 1668
         height: 372
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

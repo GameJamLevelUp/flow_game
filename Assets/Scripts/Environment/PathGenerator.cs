@@ -100,6 +100,8 @@ public class PathGenerator : MonoBehaviour
         if (distanceFromPlayer > maxDistance)
         {
             nextPoint = playerTransform.position + (nextPoint - playerTransform.position).normalized * maxDistance;
+
+            nextPoint.z = 0;
         }
 
         return nextPoint - lastPointPosition;
