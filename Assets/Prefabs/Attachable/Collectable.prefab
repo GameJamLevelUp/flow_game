@@ -113,7 +113,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3950027633043020670}
   - component: {fileID: 5721487326011932964}
-  - component: {fileID: 7146938241838761969}
   - component: {fileID: 1966920746219773098}
   m_Layer: 0
   m_Name: Collectable
@@ -181,8 +180,8 @@ SpriteRenderer:
   m_SortingLayerID: -1130683265
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.9169811, g: 0.8620028, b: 0.11592023, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 94a0cc4ca6bbdee45b411a8dd023dce7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -192,37 +191,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7146938241838761969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3799883948007957355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2acf939dfa8aeab4daf536678c0eabc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteList:
-  - sprite: {fileID: 21300000, guid: 520798a2d2368bf4e826be26731a9dbb, type: 3}
-    chance: 0.25
-  - sprite: {fileID: 21300000, guid: 6db31fd33eba73645b1ae5081a4ee9b8, type: 3}
-    chance: 0.25
-  - sprite: {fileID: 21300000, guid: cbe9bbf12d3cfd148a12646565c6915d, type: 3}
-    chance: 0.25
-  - sprite: {fileID: 21300000, guid: 44196ba884ea5f542b16a5f9a992dee3, type: 3}
-    chance: 0.25
-  reflections:
-  - sprite: {fileID: 21300000, guid: 520798a2d2368bf4e826be26731a9dbb, type: 3}
-    reflection: {fileID: 21300000, guid: 4bd065f8bc6a4a541b06036b06d4b04e, type: 3}
-  - sprite: {fileID: 21300000, guid: 6db31fd33eba73645b1ae5081a4ee9b8, type: 3}
-    reflection: {fileID: 21300000, guid: b18a3f5fd2214174087826adb3ab2e5d, type: 3}
-  - sprite: {fileID: 21300000, guid: cbe9bbf12d3cfd148a12646565c6915d, type: 3}
-    reflection: {fileID: 21300000, guid: c1f373bac940bd54787ee7ce21a207b3, type: 3}
-  - sprite: {fileID: 21300000, guid: 44196ba884ea5f542b16a5f9a992dee3, type: 3}
-    reflection: {fileID: 21300000, guid: 1b90740da3f7cbd48834def58b7ac8d3, type: 3}
-  reflectionPrefab: {fileID: 5009310237545803147, guid: 8955a1587f1549442af2f9e5ccb5447e, type: 3}
 --- !u!114 &1966920746219773098
 MonoBehaviour:
   m_ObjectHideFlags: 0
