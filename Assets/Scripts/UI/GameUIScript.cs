@@ -44,7 +44,7 @@ public class GameUI : MonoBehaviour
 
     public void ReceiveHealth()
     {
-        if (damageTaken >= 0)
+        if (damageTaken > 0)
         {
             damageTaken--;
         
