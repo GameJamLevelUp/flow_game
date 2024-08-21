@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -154,15 +155,18 @@ public class GameUI : MonoBehaviour
         
     }
 
-    public void RemoveSlowMoValue(float amount)
+    public void RemoveSlowMoValue(float amount, Rigidbody2D player, Vector2 newVelocity)
     {
-        // Remove the specified amount from the slow-mo slider value
-        slowMoSlider.value -= amount;
-        slowMoSlider.value = Mathf.Clamp(slowMoSlider.value, 0, slowMoSlider.maxValue); // Clamp to max value
+        if (slowMoSlider.value >= amount)
+        {
+            slowMoSlider.value -= amount;
+            slowMoSlider.value = Mathf.Clamp(slowMoSlider.value, 0, slowMoSlider.maxValue); // Clamp to max value
 
+            player.velocity = newVelocity;
+        }
+        
         isRegenerating = false;
         regenTimer = 0f;
-
         sliderAnimator.SetFloat("PlaySpeed", -1); // Set PlaySpeed to 1
 
     }

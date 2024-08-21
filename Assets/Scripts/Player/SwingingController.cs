@@ -56,6 +56,7 @@ public class SwingingController : MonoBehaviour
     }
 
     [Range(0f, 1f)] public float forceStealPercentage = 0.5f;
+    [Range(0f, 1f)] public float forcePrice = 0.17f;
 
     void ApplyPushForce()
     {
@@ -64,9 +65,9 @@ public class SwingingController : MonoBehaviour
 
         Vector2 originalVelocity = rb.velocity;
 
-        rb.velocity = originalVelocity * (1f - forceStealPercentage) + forceStealPercentage * originalVelocity.magnitude * directionToMouse;
+        Vector2 newVelocity = originalVelocity * (1f - forceStealPercentage) + forceStealPercentage * originalVelocity.magnitude * directionToMouse;
 
-        gameUI.RemoveSlowMoValue(0.17f);
+        gameUI.RemoveSlowMoValue(forcePrice, rb, newVelocity);
     }
 
     void FindClosestAttachable()
