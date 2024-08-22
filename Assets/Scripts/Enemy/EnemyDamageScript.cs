@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
@@ -8,11 +10,17 @@ public class EnemyDamage : MonoBehaviour
     public int damageAmount = 10; // Amount of damage to inflict on the player
     public Boolean shouldDestroy = true;
     public ParticleSystem explosionParticleSystem;
+    private bool shouldDetect = false;
+
+    private void Start()
+    {
+        Task.Delay(new TimeSpan(0, 0, 1)).ContinueWith(o => { shouldDetect = true; });
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the collision is with a player
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && shouldDetect)
         {
             // Get the player's Rigidbody2D component to check speed
             Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();

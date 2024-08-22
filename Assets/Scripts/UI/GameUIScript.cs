@@ -11,6 +11,9 @@ public class GameUI : MonoBehaviour
     public CanvasGroup containerCanvasGroup; // CanvasGroup to control transparency of the container
 
     private Image[] healthSegments; // Array of health segments represented by UI images
+    public ParticleSystem explosionParticleSystem;
+    public SpriteRenderer player;
+    // public GameObject skeleton;
 
     void Start()
     {
@@ -31,6 +34,10 @@ public class GameUI : MonoBehaviour
             animator.SetTrigger("TriggerDieAnimation");
             leaderboardAnimator.SetTrigger("TriggerDieAnimation");
             hasDied = true;
+            player.material.color = new Color(0.1f, 0.1f, 0.1f, 1);
+            if (explosionParticleSystem != null) {
+                explosionParticleSystem.Play();
+            }
             return;
         }
         // Make the specified health segment transparent
@@ -42,6 +49,25 @@ public class GameUI : MonoBehaviour
 
         damageTaken++;
     }
+
+//     void dropSkeleton()
+// {
+//     if (droppedSpritePrefab != null)
+//     {
+//         // Instantiate the sprite at the current position of the boat
+//         GameObject droppedSprite = Instantiate(droppedSpritePrefab, transform.position, transform.rotation);
+        
+//         // Optionally, you can adjust the dropped sprite's properties or add some behavior
+//         // For example, setting a different color or animation
+//         SpriteRenderer droppedSpriteRenderer = droppedSprite.GetComponent<SpriteRenderer>();
+//         if (droppedSpriteRenderer != null)
+//         {
+//             droppedSpriteRenderer.color = Color.blue;  // Change the color if desired
+//         }
+        
+//         // The dropped sprite will stay in place while the boat moves away
+//     }
+// }
 
     public void ReceiveHealth()
     {
