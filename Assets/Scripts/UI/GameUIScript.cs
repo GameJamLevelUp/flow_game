@@ -24,8 +24,9 @@ public class GameUI : MonoBehaviour
     private int damageTaken = 0;
     public void ReceiveDamage()
     {
-        if (damageTaken >= healthSegments.Length)
+        if (damageTaken >= healthSegments.Length - 1)
         {
+            SetHealthSegmentTransparency(damageTaken, 0.25f); 
             StartCoroutine(SaveHighScoreAndSlowDown(prevDistance));
             animator.SetTrigger("TriggerDieAnimation");
             leaderboardAnimator.SetTrigger("TriggerDieAnimation");
