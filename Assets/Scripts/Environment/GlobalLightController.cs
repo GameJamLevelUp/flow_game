@@ -43,7 +43,6 @@ public class GlobalLightController : MonoBehaviour
 
     private IEnumerator LerpLightColor()
     {
-        isTransitioning = true;
 
         float elapsedTime = 0f;
 
@@ -58,6 +57,5 @@ public class GlobalLightController : MonoBehaviour
         light2D.color = targetColor;
         initialColor = targetColor;
 
-        isTransitioning = false;
     }
 }

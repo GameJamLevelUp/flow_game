@@ -13,11 +13,11 @@ public class FogArea : AreaModifier
     private Vector2 startPosition;
     private Vector2 endPosition;
     private GlobalLightController globalLight;
-    private Color originalLightColor;
+    private bool hasFired = false;
 
     public override void OnEngage()
     {
-        Debug.Log("engaged");
+        hasFired = true;
 
         globalLight = FindObjectOfType<GlobalLightController>();
 
@@ -70,11 +70,21 @@ public class FogArea : AreaModifier
         // Start the light transition coroutine
         globalLight.LerpToColor(new Color(0.1f, 0.1f, 0.4f));
 
+       
+    }
+
+    public override void OnUpdate() 
+    {
+
         // Check if the player is past the end position
-        if (!IsPlayerWithinArea(effective) && !IsPlayerWithinArea(detection))
+        if (!IsPlayerWithinArea(effective) && !IsPlayerWithinArea(detection) && hasFired)
         {
             ReverseDarkness();
             Destroy(gameObject);
+        }
+        else if (hasFired)
+        {
+            Debug.Log($"Effective: {!IsPlayerWithinArea(effective)}, detection: {!IsPlayerWithinArea(detection)}, engaged: {hasFired}");
         }
     }
 

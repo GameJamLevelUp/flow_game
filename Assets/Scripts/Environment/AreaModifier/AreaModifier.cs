@@ -5,6 +5,8 @@ public abstract class AreaModifier : MonoBehaviour
 {
     public abstract void OnEngage();
 
+    public abstract void OnUpdate();
+
     public GameObject activator; // The activator area
     public GameObject detection; // The detection area
     public GameObject effective;
@@ -17,7 +19,7 @@ public abstract class AreaModifier : MonoBehaviour
     private TimeController timeController;
 
     private bool isInDetectionRange = false;
-    private bool hasEngaged = false; // Flag to track if OnEngage has been called
+    public bool hasEngaged = false; // Flag to track if OnEngage has been called
 
     public float deleteRadius = 100f; // Radius within which to check for other instances
 
@@ -58,6 +60,7 @@ public abstract class AreaModifier : MonoBehaviour
                 hasEngaged = true; // Set flag to true after calling OnEngage
             }
         }
+        OnUpdate();
     }
 
     private void CheckAndDestroyNearbyInstances()
@@ -85,47 +88,68 @@ public abstract class AreaModifier : MonoBehaviour
     {
         if (area != null && player != null)
         {
-            // Get the area’s Transform component
+            // Get the area's Transform component
             Transform areaTransform = area.transform;
 
-            // Get the size of the area (assuming it's a 2D rectangle)
+            // Calculate the local space size of the area using its localScale (assuming the area is a 2D rectangle)
             Vector2 size = new Vector2(
-                areaTransform.localScale.x,
-                areaTransform.localScale.y
+                1f,
+                1f
             );
 
-            // Calculate half the size (for easier calculations)
+            // Calculate half the size for boundary checks
             Vector2 halfSize = size * 0.5f;
 
-            // Calculate the corners of the rectangle in local space
-            Vector2 topLeft = new Vector2(-halfSize.x, halfSize.y);
-            Vector2 topRight = new Vector2(halfSize.x, halfSize.y);
-            Vector2 bottomLeft = new Vector2(-halfSize.x, -halfSize.y);
-            Vector2 bottomRight = new Vector2(halfSize.x, -halfSize.y);
+            // Convert the player's position to the local space of the area
+            Vector2 localPlayerPosition = areaTransform.InverseTransformPoint(player.transform.position);
 
-            // Apply the rotation to the corners
-            Quaternion rotation = areaTransform.rotation;
-            topLeft = rotation * topLeft;
-            topRight = rotation * topRight;
-            bottomLeft = rotation * bottomLeft;
-            bottomRight = rotation * bottomRight;
-
-            // Translate corners to world space
-            topLeft += (Vector2)areaTransform.position;
-            topRight += (Vector2)areaTransform.position;
-            bottomLeft += (Vector2)areaTransform.position;
-            bottomRight += (Vector2)areaTransform.position;
-
-            // Create a bounding rectangle from the corners
-            Vector2 min = Vector2.Min(Vector2.Min(topLeft, topRight), Vector2.Min(bottomLeft, bottomRight));
-            Vector2 max = Vector2.Max(Vector2.Max(topLeft, topRight), Vector2.Max(bottomLeft, bottomRight));
-
-            // Check if the player's position is within the bounding rectangle
-            Vector2 playerPosition = (Vector2)player.transform.position;
-            return playerPosition.x >= min.x && playerPosition.x <= max.x &&
-                   playerPosition.y >= min.y && playerPosition.y <= max.y;
+            // Check if the player's local position is within the bounds of the rectangle
+            return localPlayerPosition.x >= -halfSize.x && localPlayerPosition.x <= halfSize.x &&
+                localPlayerPosition.y >= -halfSize.y && localPlayerPosition.y <= halfSize.y;
         }
 
         return false;
     }
+void OnDrawGizmos()
+{
+    if (effective != null && player != null)
+    {
+        // Get the area's Transform component
+        Transform areaTransform = effective.transform;
+
+        // Calculate the world space size of the area using its lossyScale
+        Vector2 size = new Vector2(
+            areaTransform.lossyScale.x,
+            areaTransform.lossyScale.y
+        );
+
+        // Calculate half the size for easier calculations
+        Vector2 halfSize = size * 0.5f;
+
+        // Calculate the four corners of the rectangle in local space
+        Vector3 bottomLeft = new Vector3(-0.5f,-0.5f, 0f);
+        Vector3 bottomRight = new Vector3(0.5f, -0.5f, 0f);
+        Vector3 topLeft = new Vector3(-0.5f, 0.5f, 0f);
+        Vector3 topRight = new Vector3(0.5f, 0.5f, 0f);
+
+        // Convert local corners to world space
+        bottomLeft = areaTransform.TransformPoint(bottomLeft);
+        bottomRight = areaTransform.TransformPoint(bottomRight);
+        topLeft = areaTransform.TransformPoint(topLeft);
+        topRight = areaTransform.TransformPoint(topRight);
+
+        // Draw the rectangle
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(bottomLeft, bottomRight);
+        Gizmos.DrawLine(bottomRight, topRight);
+        Gizmos.DrawLine(topRight, topLeft);
+        Gizmos.DrawLine(topLeft, bottomLeft);
+
+        // Draw the player's position as a sphere
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawSphere(player.transform.position, 0.5f);
+    }
+}
+
+
 }
