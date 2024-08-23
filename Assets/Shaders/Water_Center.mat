@@ -55,10 +55,10 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     m_Colors:
-    - _Color: {r: 0.07058824, g: 0.6, b: 0.7254902, a: 1}
+    - _Color: {r: 0.09122462, g: 0.6428334, b: 0.7735849, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RippleColor: {r: 0.16862735, g: 0.7481907, b: 0.7529412, a: 1}
+    - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6530325506224870385
 MonoBehaviour:
