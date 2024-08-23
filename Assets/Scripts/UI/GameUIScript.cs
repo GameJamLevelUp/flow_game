@@ -15,6 +15,9 @@ public class GameUI : MonoBehaviour
     public SpriteRenderer player;
     // public GameObject skeleton;
 
+    // Reference to the TimeController
+    public TimeController timeController;
+
     void Start()
     {
         // Get all Image components that are children of the healthContainer
@@ -34,6 +37,7 @@ public class GameUI : MonoBehaviour
             animator.SetTrigger("TriggerDieAnimation");
             leaderboardAnimator.SetTrigger("TriggerDieAnimation");
             hasDied = true;
+            timeController.hasDied = true;
             player.material.color = new Color(0.1f, 0.1f, 0.1f, 1);
             if (explosionParticleSystem != null) {
                 explosionParticleSystem.Play();
@@ -76,9 +80,7 @@ public class GameUI : MonoBehaviour
             damageTaken--;
         
             SetHealthSegmentTransparency(damageTaken, 1f); 
-
         }
-        
     }
 
     // Set the transparency of a specific health segment
@@ -119,8 +121,6 @@ public class GameUI : MonoBehaviour
     public float refreshRate = 0.1f;      // Rate at which the slow-mo regenerates
     public float pauseDuration = 1.0f;    // Pause between deactivating and regenerating slow-mo
 
-    private float targetTimeScale = 1.0f; // Target time scale
-    private float timeScaleSpeed = 5.0f;  // Speed of transition
     private bool isRegenerating = false;  // Flag to indicate if regenerating
     private float regenTimer = 0f;        // Timer for the regeneration pause
     private bool isSpacePressed = false;  // Flag to track if space is pressed
@@ -131,7 +131,7 @@ public class GameUI : MonoBehaviour
         // If the space key is pressed and the slider has value left
         if (Input.GetKey(KeyCode.Space) && slowMoSlider.value > 0)
         {
-            targetTimeScale = 0.3f; // Set target game speed to 30%
+            timeController.targetTimeScaleUI = 0.3f; // Set target game speed to 30%
             slowMoSlider.value -= Time.deltaTime / 2f; // Decrease slider value over time
             isRegenerating = false;
             regenTimer = 0f; // Reset the regeneration timer
@@ -143,10 +143,12 @@ public class GameUI : MonoBehaviour
             }
             timeSinceSpaceRelease = 0f;
         }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            timeController.targetTimeScaleUI = 1.0f; // Set target game speed to 100%
+        }
         else if (!hasDied)
         {
-            targetTimeScale = 1.0f; // Set target game speed to 100%
-
             if (isSpacePressed)
             {
                 timeSinceSpaceRelease += Time.deltaTime;
@@ -174,12 +176,6 @@ public class GameUI : MonoBehaviour
             }
         }
 
-        if (!hasDied)
-        {
-            // Smoothly interpolate the time scale
-            Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * timeScaleSpeed);
-        }
-        
     }
 
     public void RemoveSlowMoValue(float amount, Rigidbody2D player, Vector2 newVelocity)
@@ -195,7 +191,6 @@ public class GameUI : MonoBehaviour
         isRegenerating = false;
         regenTimer = 0f;
         sliderAnimator.SetFloat("PlaySpeed", -1); // Set PlaySpeed to 1
-
     }
 
     [System.Serializable]
