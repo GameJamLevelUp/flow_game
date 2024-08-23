@@ -89,7 +89,9 @@ public class AlignToLineRenderer : MonoBehaviour
         // Calculate the angle to rotate the object to face the opposite direction of the normal
         float angle = Mathf.Atan2(-normalDirection.y, -normalDirection.x) * Mathf.Rad2Deg;
 
+        float autoAdd = normalDirection.x > 0 ? 180f : 0f;
+
         // Apply the rotation
-        transform.rotation = Quaternion.Euler(0, 0, angle + addDirection);
+        transform.rotation = Quaternion.Euler(0, 0, angle + autoAdd + addDirection);
     }
 }

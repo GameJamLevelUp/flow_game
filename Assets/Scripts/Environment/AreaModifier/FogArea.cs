@@ -12,18 +12,14 @@ public class FogArea : AreaModifier
 
     private Vector2 startPosition;
     private Vector2 endPosition;
-    private Light2D globalLight;
+    private GlobalLightController globalLight;
     private Color originalLightColor;
 
     public override void OnEngage()
     {
         Debug.Log("engaged");
 
-        globalLight = FindObjectOfType<Light2D>();
-        if (globalLight != null)
-        {
-            originalLightColor = globalLight.color;
-        }
+        globalLight = FindObjectOfType<GlobalLightController>();
 
         // Find the PathGenerator script
         PathGenerator pathGenerator = FindObjectOfType<PathGenerator>();
@@ -72,12 +68,13 @@ public class FogArea : AreaModifier
         }
 
         // Start the light transition coroutine
-        StartCoroutine(LerpLightColor(Color.gray, transitionDuration));
+        globalLight.LerpToColor(new Color(0.1f, 0.1f, 0.4f));
 
         // Check if the player is past the end position
-        if (player.transform.position.y -  endPosition.y > spawnRange)
+        if (!IsPlayerWithinArea(effective) && !IsPlayerWithinArea(detection))
         {
             ReverseDarkness();
+            Destroy(gameObject);
         }
     }
 
@@ -126,27 +123,9 @@ public class FogArea : AreaModifier
         return false;
     }
 
-    private IEnumerator LerpLightColor(Color targetColor, float duration)
-    {
-        if (globalLight == null) yield break;
-
-        Color startColor = globalLight.color;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            globalLight.color = Color.Lerp(startColor, targetColor, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        globalLight.color = targetColor;
-    }
 
     private void ReverseDarkness()
     {
-        Debug.Log("Reversing darkness");
-        // Start the coroutine to revert the light color
-        StartCoroutine(LerpLightColor(originalLightColor, transitionDuration));
+        globalLight.Reset();
     }
 }

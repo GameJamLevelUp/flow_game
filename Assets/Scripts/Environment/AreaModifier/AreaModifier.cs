@@ -7,7 +7,7 @@ public abstract class AreaModifier : MonoBehaviour
 
     public GameObject activator; // The activator area
     public GameObject detection; // The detection area
-
+    public GameObject effective;
     public float slowdownRange = 15f;
     public float slowdownFactor = 0.5f; // The target time scale when slowed down
     public float slowdownSpeed = 2f; // Speed of transitioning to and from the slowdown effect
@@ -57,10 +57,6 @@ public abstract class AreaModifier : MonoBehaviour
                 OnEngage();
                 hasEngaged = true; // Set flag to true after calling OnEngage
             }
-            else if (!playerInActivator)
-            {
-                hasEngaged = false; // Reset flag if the player exits the activator area
-            }
         }
     }
 
@@ -85,7 +81,7 @@ public abstract class AreaModifier : MonoBehaviour
         }
     }
 
-    private bool IsPlayerWithinArea(GameObject area)
+    public bool IsPlayerWithinArea(GameObject area)
     {
         if (area != null && player != null)
         {

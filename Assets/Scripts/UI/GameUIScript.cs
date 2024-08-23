@@ -205,6 +205,8 @@ public class GameUI : MonoBehaviour
         float elapsedTime = 0f;
 
         // Gradually slow down the game over half a second
+        GlobalLightController globalLightController = GameObject.FindAnyObjectByType<GlobalLightController>();
+        globalLightController.LerpToColor(new Color(0.5f, 0.25f, 0.5f));
         while (elapsedTime < duration)
         {
             Time.timeScale = Mathf.Lerp(initialTimeScale, targetTimeScale, elapsedTime / duration);
