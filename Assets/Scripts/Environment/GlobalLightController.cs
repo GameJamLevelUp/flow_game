@@ -36,6 +36,7 @@ public class GlobalLightController : MonoBehaviour
 
     public void Reset()
     {
+        Debug.Log($"Reset light to {initialColor}");
         targetColor = initialColor;
         StopCoroutine(LerpLightColor());
         StartCoroutine(LerpLightColor());
@@ -48,14 +49,13 @@ public class GlobalLightController : MonoBehaviour
 
         while (elapsedTime < transitionDuration)
         {
-            light2D.color = Color.Lerp(initialColor, targetColor, elapsedTime / transitionDuration);
+            light2D.color = Color.Lerp(light2D.color, targetColor, elapsedTime / transitionDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         // Ensure the final color is set
         light2D.color = targetColor;
-        initialColor = targetColor;
 
     }
 }
