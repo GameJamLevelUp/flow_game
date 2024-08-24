@@ -56,7 +56,7 @@ public class FollowTarget : MonoBehaviour
         Vector3 shakeOffset = new Vector3();
         if (shakeDuration > 0)
         {
-            shakeOffset = Random.insideUnitCircle * shakeMagnitude / (1 - shakeDuration / 0.1f);
+            shakeOffset = Random.insideUnitCircle * shakeMagnitude / Mathf.Max(shakeDuration / 0.1f, 0.1f);
             shakeDuration -= Time.deltaTime;
         }
 
