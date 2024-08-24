@@ -30,6 +30,12 @@ public class GameUI : MonoBehaviour
     private int damageTaken = 0;
     public void ReceiveDamage()
     {
+
+        if (hasDied)
+        {
+            return;
+        }
+
         if (damageTaken >= healthSegments.Length - 1)
         {
             SetHealthSegmentTransparency(damageTaken, 0.25f); 
@@ -94,7 +100,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI highScoreText;
-    private bool hasDied = false;
+    public bool hasDied = false;
     public Animator animator;
     public Animator leaderboardAnimator;
     private float prevDistance = 0;

@@ -27,6 +27,11 @@ public class SwingingController : MonoBehaviour
 
     void Update()
     {
+        if (gameUI.hasDied)
+        {
+            return;
+        }
+        
         if (gameUI != null)
         {
             gameUI.SetDistance(transform.position.y, rb.velocity.magnitude);
