@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!198 &40034257 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 912924774957064457, guid: 0ae1e0165cf21674f9d81a332330d97d, type: 3}
+  m_PrefabInstance: {fileID: 8240818839886429661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &428952538
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +297,11 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7316326368041736675, guid: 9d99914e076d31949bfa3ae1231a3537, type: 3}
   m_PrefabInstance: {fileID: 2539230889486586543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1127845014 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3081953684034925384, guid: 0ae1e0165cf21674f9d81a332330d97d, type: 3}
+  m_PrefabInstance: {fileID: 8240818839886429661}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1214086982 stripped
 GameObject:
@@ -841,6 +851,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3790977664508479326, guid: a39268990f6429d4aaa5fe2d2bbc6836, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1127845014}
+    - target: {fileID: 3790977664508479326, guid: a39268990f6429d4aaa5fe2d2bbc6836, type: 3}
+      propertyPath: explosionParticleSystem
+      value: 
+      objectReference: {fileID: 40034257}
     - target: {fileID: 5923083297121629157, guid: a39268990f6429d4aaa5fe2d2bbc6836, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
