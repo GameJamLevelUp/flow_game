@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
@@ -12,11 +13,16 @@ public class EnemyDamage : MonoBehaviour
     public ParticleSystem explosionParticleSystem;
     private bool shouldDetect = false;
 
-    private void Start()
+   private void Start()
     {
-        Task.Delay(new TimeSpan(0, 0, 1)).ContinueWith(o => { shouldDetect = true; });
+        StartCoroutine(InitializeDetection());
     }
 
+    private IEnumerator InitializeDetection()
+    {
+        yield return new WaitForSeconds(1f);
+        shouldDetect = true;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the collision is with a player
