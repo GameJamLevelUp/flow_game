@@ -6,6 +6,7 @@ public class AlignToLineRenderer : MonoBehaviour
     private LineRenderer lineRenderer;  // Reference to the LineRenderer
     public float moveDistance = 0.5f;  // Distance to move along the normal direction
     public bool debugNormals = false;  // Option to visualize normals in the editor
+    public float addDirection = 0f;
     public Vector3 originalPos;
 
     void Start()
@@ -88,7 +89,9 @@ public class AlignToLineRenderer : MonoBehaviour
         // Calculate the angle to rotate the object to face the opposite direction of the normal
         float angle = Mathf.Atan2(-normalDirection.y, -normalDirection.x) * Mathf.Rad2Deg;
 
+        float autoAdd = normalDirection.x > 0 ? 180f : 0f;
+
         // Apply the rotation
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        transform.rotation = Quaternion.Euler(0, 0, angle + autoAdd + addDirection);
     }
 }

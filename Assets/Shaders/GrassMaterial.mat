@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _SampleTexture2D_47ec6621b91f42359ab75440d0c8e7f9_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 4f5a56a4822be8640a6141e917704c6f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 819634bdefb9956459a420d75fd010e0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_5fdbf089fe2a4ae7b3b26d7020244d7f_Texture_1_Texture2D:
@@ -68,5 +68,8 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _BaseColor: {r: 0.5882353, g: 0.7058823, b: 0.13333327, a: 1}
+    - _PatchesColor: {r: 0.5490196, g: 0.6470588, b: 0.14901957, a: 1}
+    - _Position: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
