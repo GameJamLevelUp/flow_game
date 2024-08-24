@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WaitForStart : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class WaitForStart : MonoBehaviour
     void Start()
     {
         // Start the coroutine to wait for the right mouse click
-        StartCoroutine(WaitForRightClick());
+        StartCoroutine(WaitForStartClick());
     }
 
-    IEnumerator WaitForRightClick()
+    IEnumerator WaitForStartClick()
     {
         // Pause the game or disable gameplay mechanics
         if (gameplayManagers != null)
@@ -28,17 +29,13 @@ public class WaitForStart : MonoBehaviour
             startPanel.SetActive(true);
         }
 
-
-        // Wait until the player left-clicks
-        while (!Input.GetMouseButtonDown(0))
+        while (startPanel.activeSelf)
         {
             yield return null; // Wait for the next frame
         }
 
-        if (startPanel != null)
-        {
-            startPanel.SetActive(false);
-        }
+
+
 
         // Enable gameplay mechanics
         if (gameplayManagers != null)
@@ -49,4 +46,5 @@ public class WaitForStart : MonoBehaviour
             }
         }
     }
+
 }
