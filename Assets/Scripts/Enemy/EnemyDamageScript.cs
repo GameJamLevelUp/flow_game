@@ -46,6 +46,7 @@ public class EnemyDamage : MonoBehaviour
                     {
                         gameUI.ReceiveDamage();
                     }
+                    
                 } else if (shouldDestroy && explosionParticleSystem != null)
                 {
                     explosionParticleSystem.Play();

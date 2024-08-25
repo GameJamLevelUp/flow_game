@@ -1826,6 +1826,8 @@ MonoBehaviour:
   damageAmount: 10
   shouldDestroy: 0
   explosionParticleSystem: {fileID: 0}
+  rewardForKill: 0
+  rewardPrefab: {fileID: 0}
 --- !u!1 &5418871166686530069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2192,8 @@ MonoBehaviour:
   damageAmount: 10
   shouldDestroy: 0
   explosionParticleSystem: {fileID: 0}
+  rewardForKill: 0
+  rewardPrefab: {fileID: 0}
 --- !u!1 &5969197901980964311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2521,8 @@ MonoBehaviour:
   damageAmount: 10
   shouldDestroy: 0
   explosionParticleSystem: {fileID: 0}
+  rewardForKill: 0
+  rewardPrefab: {fileID: 0}
 --- !u!1 &7316326368041736675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,7 +3185,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 07dcfb37c08e1b84ca121a114b7e1e33, type: 2}
+  - {fileID: 2100000, guid: 8afd9774bbf175e4cb0ef01bd575b157, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3777,6 +3783,8 @@ MonoBehaviour:
   damageAmount: 10
   shouldDestroy: 0
   explosionParticleSystem: {fileID: 0}
+  rewardForKill: 0
+  rewardPrefab: {fileID: 0}
 --- !u!1 &9069444469903889242
 GameObject:
   m_ObjectHideFlags: 0
