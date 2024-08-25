@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acf939dfa8aeab4daf536678c0eabc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reflectionMaterial: {fileID: 2100000, guid: 8afd9774bbf175e4cb0ef01bd575b157, type: 2}
   spriteList:
   - sprite: {fileID: 21300000, guid: 520798a2d2368bf4e826be26731a9dbb, type: 3}
     chance: 0.25
@@ -121,6 +122,8 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 44196ba884ea5f542b16a5f9a992dee3, type: 3}
     reflection: {fileID: 21300000, guid: 1b90740da3f7cbd48834def58b7ac8d3, type: 3}
   reflectionPrefab: {fileID: 5009310237545803147, guid: 8955a1587f1549442af2f9e5ccb5447e, type: 3}
+  offset: {x: 0, y: -1}
+  reflectionAlpha: 0.5
   cumulative: 1
 --- !u!58 &6084365608403366620
 CircleCollider2D:
@@ -170,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 0
-  debugNormals: 0
+  debugNormals: 1
   addDirection: 0
   originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &6821156953972653165
@@ -5191,6 +5194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acf939dfa8aeab4daf536678c0eabc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reflectionMaterial: {fileID: 0}
   spriteList:
   - sprite: {fileID: 956764517, guid: ef69210c1d81e3c41bf0cca69400c49a, type: 3}
     chance: 0.05
@@ -5206,4 +5210,6 @@ MonoBehaviour:
     chance: 0.05
   reflections: []
   reflectionPrefab: {fileID: 0}
+  offset: {x: 0, y: -1}
+  reflectionAlpha: 0.5
   cumulative: 0
