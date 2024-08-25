@@ -48,7 +48,7 @@ public abstract class AreaModifier : MonoBehaviour
             {
                 isInDetectionRange = true;
                 float factor = slowdownFactor / player.GetComponent<Rigidbody2D>().velocity.magnitude;
-                timeController.targetTimeScaleEffects = Mathf.Min(1f, factor);
+                timeController.targetTimeScaleEffects = Mathf.Min(1f, Mathf.Max(factor, 0.25f));
             }
             else if (!playerInDetection && isInDetectionRange)
             {
