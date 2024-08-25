@@ -12,7 +12,7 @@ public abstract class AreaModifier : MonoBehaviour
     public GameObject detection; // The detection area
     public GameObject effective;
     public float slowdownRange = 15f;
-    public float slowdownFactor = 0.5f; // The target time scale when slowed down
+    public float slowdownFactor = 2.5f; // The target time scale when slowed down
     public float slowdownSpeed = 2f; // Speed of transitioning to and from the slowdown effect
     public float normalTimeScale = 1f; // Normal time scale
 
@@ -47,7 +47,8 @@ public abstract class AreaModifier : MonoBehaviour
             if (playerInDetection && !isInDetectionRange)
             {
                 isInDetectionRange = true;
-                timeController.targetTimeScaleEffects = slowdownFactor;
+                float factor = slowdownFactor / player.GetComponent<Rigidbody2D>().velocity.magnitude;
+                timeController.targetTimeScaleEffects = Mathf.Min(1f, factor);
             }
             else if (!playerInDetection && isInDetectionRange)
             {
@@ -98,6 +99,14 @@ public abstract class AreaModifier : MonoBehaviour
                 1f,
                 1f
             );
+
+            if (area == activator)
+            {
+                size = new Vector2(
+                    2.5f,
+                    1f
+                );
+            }
 
             // Calculate half the size for boundary checks
             Vector2 halfSize = size * 0.5f;

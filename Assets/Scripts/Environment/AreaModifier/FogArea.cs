@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 public class FogArea : AreaModifier
 {
     public GameObject prefabToSpawn; // The prefab to spawn
+    public GameObject enemyToSpawn;
     public float spawnRange = 5f; // Range within which to spawn prefabs
     public float minSpacing = 1f; // Minimum spacing between prefabs
     public float transitionDuration = 2f; // Duration of the color transition
@@ -73,7 +74,14 @@ public class FogArea : AreaModifier
         {
             Vector2 point1 = points[i];
             Vector2 point2 = (i + 1 < points.Count) ? points[i + 1] : point1;
-            SpawnPrefabsInRectangle(point1, point2);
+            SpawnPrefabsInRectangle(point1, point2, prefabToSpawn);
+        }
+
+        for (int i = startIndex; i < startIndex + 5; i++)
+        {
+            Vector2 point1 = points[i];
+            Vector2 point2 = (i + 1 < points.Count) ? points[i + 1] : point1;
+            SpawnPrefabsInRectangle(point1, point2, enemyToSpawn, 1);
         }
 
         // Start the light transition coroutine
@@ -106,6 +114,8 @@ public class FogArea : AreaModifier
         // Assuming the player's position is passed to the graph as a Vector3
         Vector3 playerPosition = GetPlayerPosition(); // Implement this method to get the player's position
 
+        playerPosition.z = 0;
+
         // Update the position parameter in the visual effect graph
         visualEffect.SetVector3("Player Position", playerPosition);
     }
@@ -122,7 +132,7 @@ public class FogArea : AreaModifier
     }
 
 
-    private void SpawnPrefabsInRectangle(Vector2 point1, Vector2 point2)
+    private void SpawnPrefabsInRectangle(Vector2 point1, Vector2 point2, GameObject item, int maxAmount = 3)
     {
         Vector2 direction = (point2 - point1).normalized;
         float length = Vector2.Distance(point1, point2);
@@ -130,7 +140,7 @@ public class FogArea : AreaModifier
         HashSet<Vector2> occupiedPositions = new HashSet<Vector2>();
 
         // Generate 10 prefabs within the rectangle
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < maxAmount; i++)
         {
             Vector2 finalPosition;
             do
@@ -151,7 +161,7 @@ public class FogArea : AreaModifier
             occupiedPositions.Add(finalPosition);
 
             // Instantiate the prefab at the final position
-            Instantiate(prefabToSpawn, finalPosition, Quaternion.identity);
+            Instantiate(item, finalPosition, Quaternion.identity);
         }
     }
 

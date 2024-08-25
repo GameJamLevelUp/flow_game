@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class EnemyDamage : MonoBehaviour
     public ParticleSystem explosionParticleSystem;
     private bool shouldDetect = false;
 
+    public float rewardForKill = 0f;
+    public GameObject rewardPrefab;
    private void Start()
     {
         StartCoroutine(InitializeDetection());
@@ -20,7 +23,7 @@ public class EnemyDamage : MonoBehaviour
 
     private IEnumerator InitializeDetection()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         shouldDetect = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +38,6 @@ public class EnemyDamage : MonoBehaviour
                 // Check player's speed
                 float playerSpeed = playerRb.velocity.magnitude;
 
-                // If player speed is below the threshold, apply damage
                 if (playerSpeed < playerSpeedThreshold)
                 {
                     // Find the GameUI instance and apply damage
@@ -48,6 +50,27 @@ public class EnemyDamage : MonoBehaviour
                 {
                     explosionParticleSystem.Play();
                     Destroy(gameObject, 0.2f);           
+                }
+                else if (shouldDestroy)
+                {
+                    GameUI gameUI = GameObject.FindObjectOfType<GameUI>();
+
+                    if (playerSpeedThreshold == 0)
+                    {
+                        if (gameUI != null)
+                        {
+                            gameUI.ReceiveDamage();
+                        }
+                    }
+                    if (rewardForKill != 0f)
+                    {
+                        gameUI.AddAdditionalDistance(rewardForKill);
+                        GameObject text = Instantiate(rewardPrefab, transform.position, Quaternion.identity);
+                        text.GetComponentInChildren<TextMeshProUGUI>().text = $"+ {rewardForKill}m";
+                    }
+
+
+                    Destroy(gameObject);           
                 }
             }
 

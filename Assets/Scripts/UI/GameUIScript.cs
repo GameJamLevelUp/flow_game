@@ -104,10 +104,12 @@ public class GameUI : MonoBehaviour
     public Animator animator;
     public Animator leaderboardAnimator;
     private float prevDistance = 0;
-
+    public float additionalDistance = 0f;
     public void SetDistance(float distance, float speed)
     {
         speedText.text = $"{speed:F0}m/s";
+
+        distance += additionalDistance;
 
         if (distance > prevDistance + 0.1f) 
         {
@@ -120,6 +122,11 @@ public class GameUI : MonoBehaviour
             // Set the trigger on the animator to fire the animation
             animator.SetTrigger("TriggerDistanceGrow");
         }
+    }
+
+    public void AddAdditionalDistance(float value)
+    {
+        additionalDistance += value;
     }
 
     public Slider slowMoSlider;           // Slider to represent slow motion duration
