@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.VFX;
+using UnityEngine.Rendering.Universal;
 
-public class FogArea : AreaModifier
+public class NighttimeArea : AreaModifier
 {
     public GameObject prefabToSpawn; // The prefab to spawn
     public float spawnRange = 5f; // Range within which to spawn prefabs
     public float minSpacing = 1f; // Minimum spacing between prefabs
     public float transitionDuration = 2f; // Duration of the color transition
-    public VisualEffect visualEffect; // Reference to the Visual Effect Graph component
 
     private Vector2 startPosition;
     private Vector2 endPosition;
@@ -18,12 +17,8 @@ public class FogArea : AreaModifier
 
     public override void OnStart()
     {
-        if (visualEffect != null)
-        {
-            visualEffect.Stop();
-        }
+        
     }
-
     public override void OnEngage()
     {
         hasFired = true;
@@ -77,50 +72,21 @@ public class FogArea : AreaModifier
         }
 
         // Start the light transition coroutine
-        globalLight.LerpToColor(new Color(0.2f, 0.2f, 0.2f));
-        // Start the visual effect when the player enters the area
-        if (visualEffect != null)
-        {
-            visualEffect.Play();
-        }
+        globalLight.LerpToColor(new Color(0.1f, 0.1f, 0.4f));
+
+       
     }
 
     public override void OnUpdate() 
     {
-        // Update the visual effect's player's position if it's active
-        if (visualEffect != null && visualEffect.isActiveAndEnabled)
-        {
-            UpdatePlayerPosition();
-        }
+
         // Check if the player is past the end position
         if (!IsPlayerWithinArea(effective) && !IsPlayerWithinArea(detection) && hasFired)
         {
             ReverseDarkness();
             Destroy(gameObject);
         }
-    
     }
-
-    private void UpdatePlayerPosition()
-    {
-        // Assuming the player's position is passed to the graph as a Vector3
-        Vector3 playerPosition = GetPlayerPosition(); // Implement this method to get the player's position
-
-        // Update the position parameter in the visual effect graph
-        visualEffect.SetVector3("Player Position", playerPosition);
-    }
-
-   private Vector3 GetPlayerPosition()
-    {
-        // Get the player's position in world space
-        Vector3 playerWorldPosition = player.transform.position;
-
-        // Convert the player's position to local space relative to this GameObject
-        Vector3 relativePosition = effective.transform.InverseTransformPoint(playerWorldPosition);
-
-        return relativePosition;
-    }
-
 
     private void SpawnPrefabsInRectangle(Vector2 point1, Vector2 point2)
     {
@@ -166,6 +132,7 @@ public class FogArea : AreaModifier
         }
         return false;
     }
+
 
     private void ReverseDarkness()
     {

@@ -6,6 +6,7 @@ public abstract class AreaModifier : MonoBehaviour
     public abstract void OnEngage();
 
     public abstract void OnUpdate();
+    public abstract void OnStart();
 
     public GameObject activator; // The activator area
     public GameObject detection; // The detection area
@@ -31,6 +32,7 @@ public abstract class AreaModifier : MonoBehaviour
         // Find the player object
         player = GameObject.FindGameObjectWithTag("Player");
         timeController = GameObject.FindAnyObjectByType<TimeController>();
+        OnStart();
     }
 
     private void Update()
