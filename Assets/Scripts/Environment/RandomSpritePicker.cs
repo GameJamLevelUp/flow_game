@@ -17,17 +17,20 @@ public class RandomSpritePicker : MonoBehaviour
         public Sprite reflection;
     }
 
+    public Material reflectionMaterial;
+
     public List<SpriteChance> spriteList; // List of sprites with their chances
     public List<SpriteReflection> reflections; // List of sprite reflections
 
     public GameObject reflectionPrefab;
 
     private SpriteRenderer spriteRenderer; // SpriteRenderer to assign the selected sprite
-    private SpriteRenderer reflectionRenderer; // SpriteRenderer to assign the selected sprite
+    public Vector2 offset = new Vector2(0f, -1f); // Offset to place the reflection below the object
+    public float reflectionAlpha = 0.6f; // Opacity of the reflection
     public bool cumulative = true;
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer attached to the same GameObject
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Get the sprite renderer of the current object
 
         if (spriteRenderer != null && spriteList.Count > 0)
         {
@@ -39,46 +42,47 @@ public class RandomSpritePicker : MonoBehaviour
             }
             spriteRenderer.sprite = selectedSprite;
 
-            gameObject.GetComponent<StaticShadowSpawner>()?.SpawnShadow(spriteRenderer);
-
-            Sprite selectedReflection = PickReflectionSprite(selectedSprite);
-            if (selectedReflection != null)
-            {
-                CreateReflection(selectedReflection);
-            }
-            else
-            {
-                Debug.LogWarning("No matching reflection found for the selected sprite.");
-            }
+            SpawnReflection(spriteRenderer);
         }
         else
         {
-            Debug.LogWarning("SpriteRenderer is not attached or spriteList is empty.");
+            Debug.LogWarning("SpriteRenderer is not attached to the object.");
         }
     }
 
-    void CreateReflection(Sprite reflectionSprite)
+    public void SpawnReflection(SpriteRenderer spriteRenderer)
     {
-        if (reflectionPrefab != null)
+        if (spriteRenderer == null)
         {
-            Vector3 reflectionLocation = new Vector3(transform.position.x, transform.position.y - 1.3f, transform.position.z);
-            GameObject reflection = Instantiate(reflectionPrefab, reflectionLocation, Quaternion.identity);
-            //reflection.transform.position.Set(reflection.transform.position.x, reflection.transform.position.y - 1, reflection.transform.position.z);
+            Debug.LogError("SpriteRenderer component not found.");
+            return;
+        }
 
-            SpriteRenderer reflectionRenderer = reflection.GetComponent<SpriteRenderer>();
-            if (reflectionRenderer != null)
-            {
-                reflectionRenderer.sprite = reflectionSprite;
-            }
-            else
-            {
-                Debug.LogWarning("Reflection prefab does not have a SpriteRenderer component.");
-            }
-        }
-        else
+        // Create a new GameObject for the reflection
+        GameObject reflectionObject = new GameObject("Reflection");
+        reflectionObject.transform.SetParent(transform); // Set the parent to this GameObject
+        reflectionObject.transform.position = transform.position + (Vector3)offset; // Set position based on offset
+        reflectionObject.transform.localRotation = Quaternion.identity;
+
+        // Add a SpriteRenderer component to the reflection object
+        SpriteRenderer reflectionSpriteRenderer = reflectionObject.AddComponent<SpriteRenderer>();
+        reflectionSpriteRenderer.sprite = spriteRenderer.sprite; // Copy the sprite from the parent
+
+        if (reflectionMaterial != null)
         {
-            Debug.LogWarning("Reflection prefab is not assigned.");
+            reflectionSpriteRenderer.material = reflectionMaterial;
+            reflectionMaterial.SetFloat("_Distortion", 0.9f); // Adjust as needed
         }
+
+        // Set the reflection color with the specified alpha
+        reflectionSpriteRenderer.color = new Color(1f, 1f, 1f, reflectionAlpha);
+
+        // Flip the reflection vertically to mimic water reflection
+        reflectionSpriteRenderer.flipY = true;
+
+        // Set sorting layer and order to render the reflection correctly
+        reflectionSpriteRenderer.sortingLayerName = spriteRenderer.sortingLayerName;
+        reflectionSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1; // Adjust sorting order if needed
     }
 
     Sprite PickRandomSprite()
@@ -121,19 +125,5 @@ public class RandomSpritePicker : MonoBehaviour
             return null;
         }
         
-    }
-
-    Sprite PickReflectionSprite(Sprite selectedSprite)
-    {
-        foreach (var reflection in reflections)
-        {
-            if (reflection.sprite == selectedSprite)
-            {
-                return reflection.reflection;
-            }
-        }
-
-        Debug.LogWarning("No matching reflection found for the selected sprite.");
-        return null; // Return null if no matching reflection is found
     }
 }
