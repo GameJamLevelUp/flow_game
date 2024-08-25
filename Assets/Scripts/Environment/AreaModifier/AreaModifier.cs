@@ -103,8 +103,8 @@ public abstract class AreaModifier : MonoBehaviour
             if (area == activator)
             {
                 size = new Vector2(
-                    2.5f,
-                    1f
+                    4f,
+                    2f
                 );
             }
 
